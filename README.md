@@ -8,8 +8,12 @@ One-page developer portfolio built with **Next.js 15 (App Router) and TypeScript
 npm install
 npm run dev      # development server → http://localhost:3000 (hot reload)
 npm run build    # production build → static site in /out
-npx serve out    # preview the production build locally
+npm run preview  # serve /out at http://localhost:3000 (resume opens as /resume.html)
+npm start        # build + preview in one step
 ```
+
+Stop `npm run dev` before building — both use the `.next` folder.
+The contact form only sends on the deployed Netlify site; locally it shows the fallback message.
 
 ## Project structure
 

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start"
+    "preview": "http-server out -p 3000 -c-1",
+    "start": "next build && http-server out -p 3000 -c-1"
   },
   "dependencies": {
     "next": "15.5.29",
@@ -16,6 +17,7 @@
     "@types/node": "^20.19.43",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "http-server": "^14.1.1",
     "typescript": "^5.9.3"
   }
 }
