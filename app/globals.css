@@ -381,6 +381,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 .marquee-item { display: inline-flex; align-items: center; gap: 10px; padding: 0 22px; font-weight: 600; color: var(--soft); white-space: nowrap; }
 .marquee-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+/* Stack logos: brand colour where readable, text colour for near-black brands, line style for generic icons */
+.marquee-icon { width: 20px; height: 20px; flex: none; fill: var(--brand, var(--text)); transition: transform 0.25s; }
+.marquee-icon.generic { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.marquee-item:hover .marquee-icon { transform: scale(1.18); }
+:root:not([data-theme="light"]) .marquee-icon.dim { fill: color-mix(in srgb, var(--brand) 55%, white); }
+.sr-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* Mouse-follow spotlight on cards */

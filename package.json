@@ -11,7 +11,8 @@
   "dependencies": {
     "next": "15.5.29",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "simple-icons": "^16.38.0"
   },
   "devDependencies": {
     "@types/node": "^20.19.43",
