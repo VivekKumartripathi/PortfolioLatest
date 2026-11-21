@@ -97,7 +97,7 @@ export const marquee: string[] = [
 ];
 
 export const impact: Stat[] = [
-  { value: ".NET + FastAPI", label: "API integration to CRM", text: "C# / ASP.NET Core Web APIs and Python FastAPI services that connect source systems to HubSpot CRM" },
+  { value: "30+", label: "APIs integrated to CRM", text: "C# / ASP.NET Core Web APIs and Python FastAPI services that connect source systems to HubSpot CRM" },
   { value: "2+", label: "Years in production", text: "Enterprise backend, integration and data work across two companies" },
   { value: "4", label: "Mapping strategies", text: "In-Memory, SQL, Hybrid and Index-based data mapping framework" },
   { value: "30", label: "Automated tests", text: "xUnit suite behind the FinanceDashboard Excel add-in" },
