@@ -21,11 +21,31 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const SITE_URL = "https://vivektripathi.netlify.app";
+const TITLE = "Vivek Kumar - API Integration & HubSpot CRM Engineer | AI-ML Automation | Full-Stack";
+const DESCRIPTION =
+  "Vivek Kumar — Software Developer building API integrations, HubSpot CRM sync pipelines and queue-based backend systems — primarily C# / ASP.NET Core Web APIs, plus Python, Node.js and Next.js.";
+
 export const metadata: Metadata = {
-  title: "Vivek Kumar - API Integration & HubSpot CRM Engineer | AI-ML Automation | Full-Stack",
-  description:
-    "Vivek Kumar — Software Developer building API integrations, HubSpot CRM sync pipelines and queue-based backend systems — primarily C# / ASP.NET Core Web APIs, plus Python, Node.js and Next.js.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
   icons: { icon: "/favicon.svg" },
+  // Link previews on LinkedIn, Slack, WhatsApp, X, etc.
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "Vivek Kumar — Portfolio",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [{ url: "/og-portfolio.png", width: 1200, height: 630, alt: "Vivek Kumar — API Integration & HubSpot CRM Engineer" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/og-portfolio.png"],
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
