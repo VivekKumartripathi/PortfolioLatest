@@ -23,6 +23,7 @@
   }
   a { color: #1f4e79; text-decoration: none; }
   p { margin: 0; }
+  body { border-top: 5px solid #b4532a; }
   h1 { font-size: 26pt; letter-spacing: 3px; margin: 0; text-align: center; font-weight: 700; color: #0f1e2e; }
   .tagline { text-align: center; font-size: 11pt; color: #333; margin-top: 4px; font-weight: 600; }
   .contact { text-align: center; font-size: 9.5pt; color: #333; margin-top: 6px; }
@@ -31,13 +32,14 @@
     font-size: 11pt; color: #b4532a; letter-spacing: 2px; text-transform: uppercase;
     margin: 14px 0 6px; padding-bottom: 3px; border-bottom: 1.2pt solid #b4532a; font-weight: 700;
   }
+  h2::before { content: ""; display: inline-block; width: 7px; height: 7px; background: #b4532a; margin-right: 8px; vertical-align: 1px; }
   h3 { font-size: 10.5pt; margin: 9px 0 1px; font-weight: 700; display: flex; justify-content: space-between; gap: 12px; color: #0f1e2e; }
   h3 .when { font-weight: 600; color: #444; white-space: nowrap; }
   .sub { display: flex; justify-content: space-between; font-style: italic; color: #333; margin-bottom: 2px; }
   ul { margin: 3px 0 0; padding-left: 17px; }
   li { margin: 2px 0; }
   .skills { display: grid; grid-template-columns: 168px 1fr; gap: 3px 10px; }
-  .skills b { color: #0f1e2e; }
+  .skills b { color: #b4532a; }
   .arch {
     font-family: Consolas, "Courier New", monospace; font-size: 7.8pt; background: #fbf6f3;
     border: 1px solid #ecd9cf; border-radius: 4px; padding: 8px 10px; margin: 4px 0;
@@ -61,7 +63,7 @@
   }
   @media print {
     html { background: #fff; }
-    body { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    body { margin: 0; padding: 0; box-shadow: none; max-width: none; border-top: 0; }
     .toolbar { display: none; }
     .arch, h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     h2, h3, .case-title { break-after: avoid; }
@@ -174,11 +176,6 @@ SQL Server  ─┘  │ CSV/JSON→Parquet │   │ COPY INTO        │   │ 
 <div class="case-title">FinanceDashboard — Excel Add-in <span class="stack">| C# · Excel-DNA · .NET · xUnit</span> &nbsp;<a href="https://github.com/VivekKumartripathi/FinanceDashboard">GitHub</a></div>
 <ul>
   <li>Excel add-in charting bank financials by metric, segment, country and period, with KPI tiles, heatmap and custom <b>FIN.*</b> worksheet functions; calculation core covered by <b>30 xUnit tests</b>.</li>
-</ul>
-
-<div class="case-title">Developer Portfolio <span class="stack">| Next.js · React · Static Export · Netlify</span> &nbsp;<a href="https://github.com/VivekKumartripathi/PortfolioLatest">GitHub</a></div>
-<ul>
-  <li>Portfolio on the <b>Next.js App Router</b> with server components, light/dark theme, project filters, scroll animations and <b>next/font</b>, statically exported for fast loads.</li>
 </ul>
 
 <div class="case-title">Incident Reporting System <span class="stack">| React.js · Node.js · Express.js · MongoDB</span> &nbsp;<a href="https://sepm-project.netlify.app/">Live Project</a></div>

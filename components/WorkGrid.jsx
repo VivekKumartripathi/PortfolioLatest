@@ -26,7 +26,7 @@ export default function WorkGrid({ projects }) {
       </div>
       <div className="cards" key={filter}>
         {shown.map((p, i) => (
-          <article key={p.title} className="card card-in spot" style={{ animationDelay: `${i * 60}ms` }}>
+          <article key={p.title} className="card card-in spot tilt" style={{ animationDelay: `${i * 60}ms` }}>
             <div className="card-top">
               <span className="tag">{p.category}</span>
               <span className="mono muted">{String(projects.indexOf(p) + 1).padStart(2, "0")}</span>

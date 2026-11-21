@@ -12,7 +12,7 @@ export default function CaseStudies() {
         />
         <div className="cases">
           {caseStudies.map((c, i) => (
-            <article key={c.title} className="case reveal spot">
+            <article key={c.title} className="case reveal spot tilt">
               <div className="case-head">
                 <span className="mono case-num">CASE {String(i + 1).padStart(2, "0")}</span>
                 <span className="tag">{c.tag}</span>
