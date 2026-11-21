@@ -19,9 +19,14 @@ export default function Contact() {
             Have an integration <span className="grad">worth building?</span>
           </h2>
           <p className="muted contact-lead">
-            Tell me what you want to connect, automate or build — the form lands straight in my inbox. {profile.location}
-            {" · "}
-            {profile.availability}. I usually reply within a day.
+            Tell me what you want to connect, automate or build — the form lands straight in my inbox.
+          </p>
+          <p className="contact-where">
+            <span className="where-dot" />
+            <span>
+              <strong>{profile.location}</strong> · {profile.availability}
+            </span>
+            <span className="where-reply">Replies within a day</span>
           </p>
           <div className="contact-list">
             {ITEMS.map((c) => {

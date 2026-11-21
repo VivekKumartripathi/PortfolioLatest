@@ -3,16 +3,6 @@
 import { useState } from "react";
 import { profile } from "@/data/portfolio";
 
-const PROJECTS = [
-  "API / CRM Integration",
-  "HubSpot setup or sync",
-  "Data pipeline (S3 / Snowflake)",
-  "AI / LLM / Claude tooling",
-  "Full-stack web app",
-  "Job opportunity",
-  "Something else",
-];
-
 // Submissions go to Netlify Forms (registered by public/__forms.html), which emails them to you.
 export default function ContactForm() {
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
@@ -77,11 +67,7 @@ export default function ContactForm() {
         </label>
         <label className="field">
           <span>What do you want to build?</span>
-          <select name="project" defaultValue={PROJECTS[0]}>
-            {PROJECTS.map((p) => (
-              <option key={p}>{p}</option>
-            ))}
-          </select>
+          <input name="project" placeholder="e.g. HubSpot sync, AI tool" />
         </label>
       </div>
 
