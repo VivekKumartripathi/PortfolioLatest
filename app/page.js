@@ -13,8 +13,6 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
-import CommandPalette from "@/components/CommandPalette";
-import Toast from "@/components/Toast";
 
 export default function Home() {
   return (
@@ -38,8 +36,6 @@ export default function Home() {
       <Footer />
       <RevealObserver />
       <Spotlight />
-      <CommandPalette />
-      <Toast />
     </>
   );
 }

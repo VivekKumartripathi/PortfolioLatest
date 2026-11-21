@@ -1,5 +1,4 @@
 import Arrow from "./Arrow";
-import CopyEmail from "./CopyEmail";
 import { profile } from "@/data/portfolio";
 
 const ITEMS = [
@@ -19,15 +18,6 @@ export default function Contact() {
         </h2>
         <p className="muted">
           {profile.location} · {profile.availability}. I usually reply within a day.
-        </p>
-        <div className="actions contact-actions">
-          <CopyEmail email={profile.email} />
-          <a href={profile.links.resume} target="_blank" rel="noreferrer" className="btn btn-ghost">
-            View resume <Arrow />
-          </a>
-        </div>
-        <p className="mono muted palette-hint">
-          Tip: press <kbd>Ctrl</kbd> + <kbd>K</kbd> anywhere to jump around
         </p>
         <div className="contact-grid">
           {ITEMS.map((c) => {

@@ -188,10 +188,10 @@ export const projects = [
     category: "Frontend",
     title: "This Portfolio",
     description:
-      "Developer portfolio on the Next.js App Router — command palette (Ctrl+K), light/dark theme, project filters, scroll animations and a printable resume.",
+      "Developer portfolio on the Next.js App Router — light/dark theme, project filters, scroll animations and a printable resume.",
     outcome: "Statically exported to plain HTML, so it loads fast and deploys free on Netlify.",
     stack: ["Next.js", "React", "CSS", "next/font", "Netlify"],
-    link: { label: "GitHub", href: "https://github.com/vivekkumartripathi/PortfolioLatest" },
+    link: { label: "GitHub", href: "https://github.com/VivekKumartripathi/PortfolioLatest" },
   },
 ];
 

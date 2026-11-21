@@ -45,13 +45,6 @@ export default function Nav() {
           </a>
         </nav>
         <div className="nav-tools">
-          <button
-            className="icon-btn kbd-btn"
-            aria-label="Open command palette"
-            onClick={() => window.dispatchEvent(new Event("palette:open"))}
-          >
-            <span className="mono">⌘K</span>
-          </button>
           <button className="icon-btn" aria-label="Toggle theme" onClick={toggleTheme}>
             <svg className="i-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <circle cx="12" cy="12" r="4" />
