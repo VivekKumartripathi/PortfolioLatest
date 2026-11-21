@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!-- Netlify Forms reads this file at deploy time to register the "contact" form.
+     The visible form lives in components/ContactForm.jsx and posts here. Field names must match. -->
+<html lang="en">
+<head><meta charset="UTF-8"><title>Forms</title><meta name="robots" content="noindex"></head>
+<body>
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="contact">
+    <input name="bot-field">
+    <input name="name">
+    <input name="email" type="email">
+    <input name="company">
+    <select name="project">
+      <option>API / CRM Integration</option>
+    </select>
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>

@@ -31,7 +31,7 @@ export const heroSteps = [
 // Scrolling tech strip under the hero.
 export const marquee = [
   "HubSpot CRM", "Snowflake", "AWS S3", "FastAPI", "Parquet", "BullMQ", "Redis", "Claude", "MCP",
-  "ASP.NET Core", "Node.js", "Next.js", "React", "Python", "C#", "SQL Server", "OpenAI GPT", "SFTP",
+  "ASP.NET Core", "Node.js", "Next.js", "React", "Python", "C#", "SQL Server", "SQLite", "PostgreSQL", "Docker", "OpenAI GPT", "RAG", "SFTP",
 ];
 
 export const impact = [
@@ -204,7 +204,7 @@ export const capabilities = [
   {
     title: "Data Engineering & Cloud",
     text: "Moving data from raw files to a queryable warehouse.",
-    items: ["Snowflake", "AWS S3", "Parquet", "PyArrow", "boto3", "FastAPI", "Pandas", "SFTP / FileZilla", "SQL Server", "MySQL", "MongoDB"],
+    items: ["Snowflake", "AWS S3", "Parquet", "PyArrow", "boto3", "FastAPI", "Pandas", "SFTP / FileZilla", "SQL Server", "PostgreSQL", "SQLite", "MySQL", "MongoDB"],
   },
   {
     title: "Backend & Architecture",
@@ -214,7 +214,7 @@ export const capabilities = [
   {
     title: "AI, LLMs & Agents",
     text: "Putting LLMs to work on real business data.",
-    items: ["Claude", "Claude Code", "MCP / FastMCP", "OpenAI GPT", "LangChain", "Hugging Face", "Prompt Engineering", "NLP", "Machine Learning", "TensorFlow", "RapidFuzz"],
+    items: ["Claude", "Claude Code", "MCP / FastMCP", "AI Agents", "RAG", "Vector Embeddings", "OpenAI GPT", "LangChain", "Hugging Face", "Prompt Engineering", "NLP", "Machine Learning", "TensorFlow"],
   },
   {
     title: "Frontend",
@@ -224,7 +224,7 @@ export const capabilities = [
   {
     title: "Languages & Delivery",
     text: "Shipping with review and CI.",
-    items: ["C#", "Python", "JavaScript", "C/C++", "SQL", "Git", "Azure DevOps", "CI/CD"],
+    items: ["C#", "Python", "JavaScript", "C/C++", "SQL", "Docker", "Git", "GitHub Actions", "Azure DevOps", "CI/CD"],
   },
 ];
 
