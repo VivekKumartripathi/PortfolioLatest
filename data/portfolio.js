@@ -3,7 +3,7 @@
 export const profile = {
   name: "Vivek Kumar",
   initials: "VK",
-  role: ".NET API Integration & HubSpot CRM Engineer",
+  role: "API Integration & HubSpot CRM Engineer",
   company: "GlobalData",
   location: "Hyderabad, India",
   availability: "Open to Remote / Hybrid",
@@ -15,7 +15,7 @@ export const profile = {
     codechef: "https://www.codechef.com/users/vivektripaathy",
     resume: "/resume.html",
   },
-  tagline: ".NET Web APIs · HubSpot CRM · Data Pipelines · Applied AI",
+  tagline: "API Integration · HubSpot CRM · Data Pipelines · Applied AI",
   headline: ["I connect systems", "so data flows"],
   rotating: ["reliably.", "securely.", "at scale.", "into the CRM."],
   intro:
@@ -35,7 +35,7 @@ export const marquee = [
 ];
 
 export const impact = [
-  { value: "60%", label: ".NET API work", text: "Most of my day is C# and ASP.NET Core Web APIs — the integration layer everything else plugs into" },
+  { value: ".NET + FastAPI", label: "API integration to CRM", text: "C# / ASP.NET Core Web APIs and Python FastAPI services that connect source systems to HubSpot CRM" },
   { value: "2+", label: "Years in production", text: "Enterprise backend, integration and data work across two companies" },
   { value: "4", label: "Mapping strategies", text: "In-Memory, SQL, Hybrid and Index-based data mapping framework" },
   { value: "30", label: "Automated tests", text: "xUnit suite behind the FinanceDashboard Excel add-in" },

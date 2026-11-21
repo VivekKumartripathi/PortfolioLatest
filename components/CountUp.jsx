@@ -8,7 +8,8 @@ export default function CountUp({ value, duration = 1400 }) {
   const [shown, setShown] = useState(value);
 
   useEffect(() => {
-    const match = String(value).match(/^([^\d]*)([\d.]+)(.*)$/);
+    // Only animate real numbers like "92%" or "9.29"; text values such as ".NET" render as-is.
+    const match = String(value).match(/^([^\d]*?)(\d+(?:\.\d+)?)(.*)$/);
     if (!match || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const [, pre, num, post] = match;
     const target = parseFloat(num);

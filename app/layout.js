@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Vivek Kumar - .NET API Integration & HubSpot CRM Engineer | AI-ML Automation | Full-Stack",
+  title: "Vivek Kumar - API Integration & HubSpot CRM Engineer | AI-ML Automation | Full-Stack",
   description:
     "Vivek Kumar — Software Developer building API integrations, HubSpot CRM sync pipelines and queue-based backend systems — primarily C# / ASP.NET Core Web APIs, plus Python, Node.js and Next.js.",
   icons: { icon: "/favicon.svg" },
