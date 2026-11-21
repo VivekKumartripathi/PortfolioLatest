@@ -461,6 +461,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .card-in, .case:first-child::after { animation: none; }
 }
 
+/* Featured (.NET) skill group */
+.cap-featured { border-color: rgba(255, 138, 92, 0.4); background: linear-gradient(160deg, rgba(255, 138, 92, 0.1), rgba(167, 139, 250, 0.06)); }
+.cap-featured .chip { border-color: rgba(255, 138, 92, 0.35); color: var(--text); }
+
 /* ---------- Dynamic UI ---------- */
 
 /* Network canvas behind the hero */

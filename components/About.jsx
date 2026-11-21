@@ -8,7 +8,8 @@ export default function About() {
           <span className="mono eyebrow">07 — About</span>
           <h2>Backend engineer who cares where the data lands.</h2>
           <p className="muted">
-            I started in machine learning research, then moved into enterprise .NET development — PDFs, Word add-ins,
+            I started in machine learning research, then moved into enterprise .NET development — and C# / ASP.NET Core Web APIs
+            are still the core of what I build. Along the way: PDFs, Word add-ins,
             scheduled reports. At GlobalData I now work where systems meet: REST APIs, HubSpot CRM sync, queue-based
             workers, FastAPI pipelines into S3 and Snowflake, and AI tooling that lets LLMs reach real business data safely.
           </p>

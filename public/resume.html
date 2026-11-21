@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vivek Kumar - API Integration &amp; HubSpot CRM Engineer | AI-ML Automation | Full-Stack</title>
+<title>Vivek Kumar - .NET API Integration &amp; HubSpot CRM Engineer | AI-ML Automation | Full-Stack</title>
 <meta name="description" content="Resume of Vivek Kumar — API Integration & HubSpot CRM Engineer, Data Pipelines (FastAPI, S3, Snowflake), Applied AI (Claude, MCP).">
 <style>
   @page { size: A4; margin: 12mm 14mm; }
@@ -79,24 +79,25 @@
 </div>
 
 <h1>VIVEK KUMAR</h1>
-<div class="tagline">API Integration &amp; HubSpot CRM Engineer &nbsp;|&nbsp; AI-ML Automation &nbsp;|&nbsp; Full-Stack</div>
+<div class="tagline">.NET API Integration &amp; HubSpot CRM Engineer &nbsp;|&nbsp; AI-ML Automation &nbsp;|&nbsp; Full-Stack</div>
 <div class="contact">
   Hyderabad, India<span>|</span>+91 9304270949<span>|</span><a href="mailto:vivektripaathy@gmail.com">vivektripaathy@gmail.com</a><span>|</span><a href="https://www.linkedin.com/in/vivektripathi20/">LinkedIn</a><span>|</span><a href="https://github.com/vivekkumartripathi">GitHub</a><span>|</span><a href="https://www.codechef.com/users/vivektripaathy">CodeChef</a>
 </div>
 
 <h2>Professional Summary</h2>
 <p>
-  Software Developer with <b>2+ years</b> building <b>REST API integrations, multi-tenant HubSpot CRM sync</b> and <b>data pipelines</b>
-  in C#/.NET, Python and Node.js. Designs <b>system architecture</b> with <b>FastAPI</b> microservices, <b>Parquet on AWS S3</b>,
+  Software Developer with <b>2+ years</b> building <b>C# / ASP.NET Core Web APIs</b> — my primary stack — that power
+  <b>multi-tenant HubSpot CRM integrations</b> and <b>data pipelines</b>, alongside Python and Node.js services. Designs <b>system architecture</b> with <b>FastAPI</b> microservices, <b>Parquet on AWS S3</b>,
   <b>Snowflake</b> and <b>BullMQ + Redis</b> job queues. Models <b>CRM parent–child objects and associations</b> with per-client token
   connections, and builds <b>LLM and Claude (MCP)</b> tools that bring AI to enterprise data. Strong foundation in <b>data structures and algorithms</b>.
 </p>
 
 <h2>Technical Skills</h2>
 <div class="skills">
+  <b>.NET &amp; API Engineering</b><span>C# · ASP.NET Core Web API · .NET · Entity Framework Core · Dapper · LINQ · REST / OpenAPI (Swagger) · Middleware &amp; Filters · JWT / OAuth · HttpClientFactory · Background Services · Quartz.NET · xUnit</span>
   <b>API &amp; CRM Integration</b><span>HubSpot CRM API (Objects, Associations, Custom Objects, Batch) · Parent–Child Object Modelling · Multi-tenant Token / OAuth · REST APIs · Webhooks · Swagger · Postman · HttpClientFactory</span>
   <b>Data Engineering &amp; Cloud</b><span>Snowflake (Stages, COPY INTO) · AWS S3 · Parquet · PyArrow · boto3 · Pandas · NumPy · SFTP / FTP (FileZilla) · ETL Pipelines · Docker</span>
-  <b>Backend &amp; Architecture</b><span>System Architecture · Microservices · FastAPI · ASP.NET Core · .NET · Node.js · Flask · BullMQ · Redis · Entity Framework · Dapper · Quartz.NET</span>
+  <b>Architecture &amp; Queues</b><span>System Architecture · Microservices · FastAPI · Node.js · Flask · BullMQ · Redis · Docker</span>
   <b>AI, LLMs &amp; ML</b><span>Claude · Claude Code · MCP / FastMCP · AI Agents · RAG · Vector Embeddings · OpenAI GPT APIs · LangChain · Hugging Face · Prompt Engineering · NLP · ML · DL · TensorFlow</span>
   <b>Languages</b><span>C# · Python · JavaScript · TypeScript · SQL · C/C++ · HTML · CSS</span>
   <b>Frontend</b><span>Next.js · React.js · Angular · React Native · Chart.js · Bootstrap</span>
@@ -107,17 +108,18 @@
 <h2>Integration &amp; Data Systems — Architecture at a Glance</h2>
 <div class="arch">SOURCES         PROCESS                STORE &amp; WAREHOUSE      QUEUE                DESTINATIONS
                 ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐
-SFTP files  ─┐  │ FastAPI services │   │ AWS S3 (Parquet) │   │ BullMQ on Redis  │ ┌► HubSpot CRM
-Partner APIs├─► │ validate · map   │─► │ Snowflake stage  │─► │ per-client queue │─┼► Associations
+SFTP files  ─┐  │ ASP.NET Core API │   │ AWS S3 (Parquet) │   │ BullMQ on Redis  │ ┌► HubSpot CRM
+Partner APIs├─► │ FastAPI services │─► │ Snowflake stage  │─► │ per-client queue │─┼► Associations
 SQL Server  ─┘  │ CSV/JSON→Parquet │   │ COPY INTO        │   │ retry · backoff  │ └► Claude · MCP
                 └──────────────────┘   └──────────────────┘   └──────────────────┘</div>
-<div class="metrics"><b>6</b> pipeline stages &nbsp;·&nbsp; <b>per-client</b> tokens &amp; queues &nbsp;·&nbsp; <b>parent → child</b> CRM sync order &nbsp;·&nbsp; <b>4</b> mapping strategies &nbsp;·&nbsp; raw files kept on S3 for replay</div>
+<div class="metrics"><b>.NET</b> Web API core &nbsp;·&nbsp; <b>6</b> pipeline stages &nbsp;·&nbsp; <b>per-client</b> tokens &amp; queues &nbsp;·&nbsp; <b>parent → child</b> CRM sync order &nbsp;·&nbsp; <b>4</b> mapping strategies &nbsp;·&nbsp; raw files kept on S3 for replay</div>
 
 <h2>Professional Experience</h2>
 
 <h3><span>Software Developer — GlobalData Research Center Pvt Ltd.</span><span class="when">Oct 2025 – Present</span></h3>
 <div class="sub"><span>API Integration · HubSpot CRM · Data Pipelines · Applied AI</span><span>Hyderabad</span></div>
 <ul>
+  <li><b>.NET Web APIs:</b> Built <b>C# / ASP.NET Core Web APIs</b> as the core integration layer — tenant connections, HubSpot sync orchestration, mapping and data-processing endpoints — using <b>Entity Framework Core and Dapper</b> over SQL Server.</li>
   <li><b>Multi-tenant CRM integration:</b> Architected a HubSpot CRM integration where each client connects with its own private-app / OAuth token, stored encrypted and scoped per tenant.</li>
   <li><b>Parent–child objects:</b> Modelled Company → Contact → Deal → custom object hierarchies and synced them in dependency order through the HubSpot Objects and <b>Associations APIs</b> with batch upserts.</li>
   <li><b>Queue architecture:</b> Designed background sync on <b>BullMQ and Redis</b> with per-client queues, exponential backoff for API rate limits (HTTP 429) and idempotent jobs, so failed calls never drop records.</li>
@@ -132,7 +134,7 @@ SQL Server  ─┘  │ CSV/JSON→Parquet │   │ COPY INTO        │   │ 
 <h3><span>Software Developer — Audree Infotech Pvt Ltd.</span><span class="when">Jul 2024 – Oct 2025</span></h3>
 <div class="sub"><span>Enterprise .NET Applications</span><span>Hyderabad</span></div>
 <ul>
-  <li>Developed enterprise applications using <b>C#, ASP.NET, ASP.NET Core, Entity Framework and SQL Server</b> for business workflows and data management.</li>
+  <li>Built <b>RESTful ASP.NET Core Web APIs</b> and enterprise applications in <b>C#, ASP.NET, Entity Framework and SQL Server</b> for business workflows and data management.</li>
   <li>Implemented real-time PDF generation, dynamic document creation and PDF merging using <b>iTextSharp and Aspose.PDF</b>.</li>
   <li>Built a <b>VSTO Microsoft Word Add-in</b> supporting document editing, read/write operations and Track Changes.</li>
   <li>Created <b>Chart.js</b> dashboards and automated scheduled Excel reports and email distribution with <b>Quartz.NET</b>.</li>
@@ -147,10 +149,10 @@ SQL Server  ─┘  │ CSV/JSON→Parquet │   │ COPY INTO        │   │ 
 
 <h2>Flagship Case Studies</h2>
 
-<div class="case-title"><span class="tag">CASE 1 · FLAGSHIP —</span> Multi-tenant HubSpot CRM Integration <span class="stack">| HubSpot API · Associations API · Node.js · BullMQ · Redis · OAuth</span></div>
+<div class="case-title"><span class="tag">CASE 1 · FLAGSHIP —</span> Multi-tenant HubSpot CRM Integration <span class="stack">| ASP.NET Core · C# · HubSpot API · Associations API · BullMQ · Redis</span></div>
 <ul>
   <li><b>Problem:</b> Each client has its own HubSpot portal, and child records (Deals) cannot be linked before their parents (Companies, Contacts) exist.</li>
-  <li><b>Built:</b> Client-scoped token connections, dependency-ordered sync with association linking, and per-client queues with retries and backoff.</li>
+  <li><b>Built:</b> An ASP.NET Core Web API layer with client-scoped token connections, dependency-ordered sync with association linking, and per-client queues with retries and backoff.</li>
   <li><b>Impact:</b> One client’s rate limit or bad record no longer blocks the others, and every child record lands under the correct parent.</li>
 </ul>
 

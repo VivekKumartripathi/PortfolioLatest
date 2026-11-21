@@ -5,7 +5,7 @@ import { profile, heroSteps } from "@/data/portfolio";
 
 const COLS = [
   { title: "Sources", x: 12, items: ["SFTP Files", "Partner APIs", "SQL Server"] },
-  { title: "Pipeline", x: 171, items: ["FastAPI → Parquet", "AWS S3", "BullMQ · Redis"] },
+  { title: "Pipeline", x: 171, items: [".NET Web API", "FastAPI → S3", "BullMQ · Redis"] },
   { title: "Systems", x: 330, items: ["HubSpot CRM", "Snowflake", "Claude · MCP"] },
 ];
 const W = 118;

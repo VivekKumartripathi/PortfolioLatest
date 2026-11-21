@@ -3,7 +3,7 @@
 export const profile = {
   name: "Vivek Kumar",
   initials: "VK",
-  role: "API Integration & HubSpot CRM Engineer",
+  role: ".NET API Integration & HubSpot CRM Engineer",
   company: "GlobalData",
   location: "Hyderabad, India",
   availability: "Open to Remote / Hybrid",
@@ -15,11 +15,11 @@ export const profile = {
     codechef: "https://www.codechef.com/users/vivektripaathy",
     resume: "/resume.html",
   },
-  tagline: "API Integration · HubSpot CRM · Data Pipelines · Applied AI",
+  tagline: ".NET Web APIs · HubSpot CRM · Data Pipelines · Applied AI",
   headline: ["I connect systems", "so data flows"],
   rotating: ["reliably.", "securely.", "at scale.", "into the CRM."],
   intro:
-    "Software Developer with 2+ years building REST APIs, multi-tenant HubSpot CRM integrations, FastAPI data pipelines into S3 and Snowflake, and Claude-powered AI tooling — turning scattered enterprise data into clean, synced, trustworthy records.",
+    "Software Developer with 2+ years building C# / ASP.NET Core Web APIs — the backbone of multi-tenant HubSpot CRM integrations — plus FastAPI data pipelines into S3 and Snowflake and Claude-powered AI tooling, turning scattered enterprise data into clean, synced, trustworthy records.",
 };
 
 export const heroSteps = [
@@ -30,14 +30,14 @@ export const heroSteps = [
 
 // Scrolling tech strip under the hero.
 export const marquee = [
-  "HubSpot CRM", "Snowflake", "AWS S3", "FastAPI", "Parquet", "BullMQ", "Redis", "Claude", "MCP",
-  "ASP.NET Core", "Node.js", "Next.js", "React", "Python", "C#", "SQL Server", "SQLite", "PostgreSQL", "Docker", "OpenAI GPT", "RAG", "SFTP",
+  "C#", ".NET", "ASP.NET Core Web API", "Entity Framework", "HubSpot CRM", "Snowflake", "AWS S3", "FastAPI",
+  "Parquet", "BullMQ", "Redis", "Claude", "MCP", "Node.js", "Next.js", "React", "Python", "SQL Server", "SQLite", "PostgreSQL", "Docker", "OpenAI GPT", "RAG", "SFTP",
 ];
 
 export const impact = [
+  { value: "60%", label: ".NET API work", text: "Most of my day is C# and ASP.NET Core Web APIs — the integration layer everything else plugs into" },
   { value: "2+", label: "Years in production", text: "Enterprise backend, integration and data work across two companies" },
   { value: "4", label: "Mapping strategies", text: "In-Memory, SQL, Hybrid and Index-based data mapping framework" },
-  { value: "6", label: "Pipeline stages", text: "Ingest → FastAPI → S3 → Snowflake → HubSpot → AI, each decoupled" },
   { value: "30", label: "Automated tests", text: "xUnit suite behind the FinanceDashboard Excel add-in" },
   { value: "92%", label: "Model accuracy", text: "Emotion-recognition chatbot that won SIGFEST’23" },
   { value: "9.29", label: "B.Tech CGPA", text: "Computer Science & Engineering, SRM IST" },
@@ -53,8 +53,8 @@ export const architecture = [
   {
     n: "02",
     title: "Process",
-    text: "FastAPI microservices validate, normalize and convert raw files into columnar Parquet.",
-    tech: "FastAPI · Pandas · PyArrow · RapidFuzz",
+    text: "ASP.NET Core Web APIs and FastAPI microservices validate, normalize and convert raw files into Parquet.",
+    tech: "ASP.NET Core · FastAPI · PyArrow · RapidFuzz",
   },
   {
     n: "03",
@@ -90,12 +90,12 @@ export const caseStudies = [
     problem:
       "Each client runs its own HubSpot portal. Records have parent–child dependencies — a Deal can’t be linked before its Company and Contacts exist.",
     built: [
-      "Client-scoped connections: every tenant connects with its own HubSpot private-app / OAuth token, stored encrypted and resolved per request.",
+      "ASP.NET Core Web API layer: every tenant connects with its own HubSpot private-app / OAuth token, stored encrypted and resolved per request.",
       "Dependency-ordered sync: Company → Contacts → Deals → custom objects, linked through the Associations API with batch upserts.",
       "Per-client BullMQ queues on Redis with exponential backoff for 429 rate limits and idempotent jobs.",
     ],
     impact: "One client’s rate limit or bad record no longer blocks the others, and every child record lands under the right parent.",
-    stack: ["HubSpot CRM API", "Associations API", "Node.js", "BullMQ", "Redis", "OAuth / Tokens"],
+    stack: ["ASP.NET Core", "C#", "HubSpot CRM API", "Associations API", "BullMQ", "Redis", "OAuth / Tokens"],
   },
   {
     tag: "Data Engineering",
@@ -197,9 +197,15 @@ export const projects = [
 
 export const capabilities = [
   {
+    title: ".NET & API Engineering",
+    text: "My core stack — C# Web APIs that everything else plugs into.",
+    items: ["C#", "ASP.NET Core Web API", ".NET", "Entity Framework Core", "Dapper", "LINQ", "REST / OpenAPI", "Middleware & Filters", "JWT / OAuth", "HttpClientFactory", "Background Services", "Quartz.NET", "xUnit"],
+    featured: true,
+  },
+  {
     title: "API & CRM Integration",
     text: "Connecting systems through clean, resilient APIs.",
-    items: ["HubSpot CRM", "Parent–Child Objects", "Associations API", "Multi-tenant Tokens", "OAuth", "REST APIs", "Webhooks", "Swagger", "Postman", "HttpClientFactory"],
+    items: ["HubSpot CRM", "Parent–Child Objects", "Associations API", "Multi-tenant Tokens", "Batch APIs", "Webhooks", "Rate Limiting", "Swagger", "Postman"],
   },
   {
     title: "Data Engineering & Cloud",
@@ -207,9 +213,9 @@ export const capabilities = [
     items: ["Snowflake", "AWS S3", "Parquet", "PyArrow", "boto3", "FastAPI", "Pandas", "SFTP / FileZilla", "SQL Server", "PostgreSQL", "SQLite", "MySQL", "MongoDB"],
   },
   {
-    title: "Backend & Architecture",
+    title: "Architecture & Queues",
     text: "Services, queues and storage designed to scale.",
-    items: ["System Architecture", "ASP.NET Core", ".NET", "Node.js", "Flask", "BullMQ", "Redis", "Entity Framework", "Dapper", "Quartz.NET", "DSA"],
+    items: ["System Architecture", "Microservices", "BullMQ", "Redis", "Node.js", "FastAPI", "Flask", "Docker", "DSA"],
   },
   {
     title: "AI, LLMs & Agents",
@@ -217,14 +223,9 @@ export const capabilities = [
     items: ["Claude", "Claude Code", "MCP / FastMCP", "AI Agents", "RAG", "Vector Embeddings", "OpenAI GPT", "LangChain", "Hugging Face", "Prompt Engineering", "NLP", "Machine Learning", "TensorFlow"],
   },
   {
-    title: "Frontend",
-    text: "Interfaces that make data usable.",
-    items: ["Next.js", "React.js", "TypeScript", "Angular", "React Native", "Chart.js", "Bootstrap"],
-  },
-  {
-    title: "Languages & Delivery",
-    text: "Shipping with review and CI.",
-    items: ["C#", "Python", "JavaScript", "C/C++", "SQL", "Docker", "Git", "GitHub Actions", "Azure DevOps", "CI/CD"],
+    title: "Frontend & Delivery",
+    text: "Interfaces that make data usable, shipped with review and CI.",
+    items: ["Next.js", "React.js", "TypeScript", "JavaScript", "Angular", "Python", "SQL", "Git", "GitHub Actions", "Azure DevOps", "CI/CD"],
   },
 ];
 
@@ -236,6 +237,7 @@ export const experience = [
     dates: "Oct 2025 – Present",
     current: true,
     points: [
+      "Built C# / ASP.NET Core Web APIs as the core integration layer — tenant connections, HubSpot sync orchestration, mapping and data-processing endpoints — using Entity Framework Core and Dapper over SQL Server.",
       "Architected a multi-tenant HubSpot CRM integration where each client connects with its own private-app / OAuth token, stored encrypted and scoped per tenant.",
       "Modelled parent–child CRM hierarchies (Company → Contacts → Deals → custom objects) and synced them in dependency order through HubSpot Objects and Associations APIs with batch upserts.",
       "Designed queue-based sync on BullMQ and Redis — per-client queues, exponential backoff for rate limits and idempotent jobs.",
@@ -251,7 +253,7 @@ export const experience = [
     location: "Hyderabad",
     dates: "Jul 2024 – Oct 2025",
     points: [
-      "Developed enterprise applications with C#, ASP.NET Core, Entity Framework and SQL Server.",
+      "Built RESTful ASP.NET Core Web APIs and enterprise applications in C# with Entity Framework and SQL Server for business workflows.",
       "Implemented real-time PDF generation and merging with iTextSharp and Aspose.PDF.",
       "Built a VSTO Microsoft Word add-in with read/write and Track Changes support.",
       "Built Chart.js dashboards and scheduled Excel reports emailed via Quartz.NET.",

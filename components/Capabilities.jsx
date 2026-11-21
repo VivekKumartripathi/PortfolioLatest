@@ -8,7 +8,7 @@ export default function Capabilities() {
         <SectionHead n="05 — Capabilities" title="The toolkit." />
         <div className="caps">
           {capabilities.map((c) => (
-            <div key={c.title} className="cap reveal spot">
+            <div key={c.title} className={`cap reveal spot ${c.featured ? "cap-featured" : ""}`}>
               <div className="cap-head">
                 <h3>{c.title}</h3>
                 <span className="mono accent">{String(c.items.length).padStart(2, "0")}</span>
