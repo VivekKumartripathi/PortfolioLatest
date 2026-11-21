@@ -531,6 +531,50 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .tilt:hover { transform: none; }
 }
 
+/* ---------- Collapsible cards (phones only) ---------- */
+/* Architecture steps and case studies show just their header on phones, with a ⋯ button that turns into ✕. */
+.expand-btn { display: none; }
+.case .collapse-body { display: flex; flex-direction: column; gap: 14px; flex: 1; }
+
+@media (max-width: 640px) {
+  .collapsible:not(.open) .collapse-body { display: none; }
+  .collapsible.open .collapse-body { animation: expand-in 0.35s ease both; }
+  @keyframes expand-in { from { opacity: 0; transform: translateY(-6px); } }
+
+  .expand-btn {
+    position: relative; display: inline-grid; place-items: center; flex: none;
+    width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+    border: 1px solid var(--line-2); background: var(--card); color: var(--text);
+    transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.25s;
+  }
+  .expand-btn:active { transform: scale(0.92); }
+  .expand-btn svg { position: absolute; transition: opacity 0.25s ease, transform 0.35s ease; }
+  .expand-btn .i-dots { fill: currentColor; }
+  .expand-btn .i-close { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; opacity: 0; transform: rotate(-90deg) scale(0.6); }
+  .expand-btn.is-open { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 6px 18px -6px var(--accent); }
+  .expand-btn.is-open .i-dots { opacity: 0; transform: rotate(90deg) scale(0.6); }
+  .expand-btn.is-open .i-close { opacity: 1; transform: none; }
+
+  /* Architecture: number + title + button on one row */
+  .arch { gap: 10px; }
+  .arch-step { padding: 16px 18px; }
+  .arch-head { display: flex; align-items: center; gap: 12px; }
+  .arch-head .arch-num { margin-bottom: 0; flex: none; }
+  .arch-head h3 { flex: 1; font-size: 17px; }
+  .arch-step.open .collapse-body { padding-top: 10px; }
+
+  /* Case studies: tag sits beside the button */
+  .cases { gap: 12px; }
+  .case-head { gap: 10px; }
+  .case-head .tag { margin-left: auto; }
+  .case:not(.open) { gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collapsible.open .collapse-body { animation: none; }
+  .expand-btn, .expand-btn svg { transition: none; }
+}
+
 /* Responsive */
 @media (max-width: 980px) {
   .hero-grid, .about-grid { grid-template-columns: 1fr; }

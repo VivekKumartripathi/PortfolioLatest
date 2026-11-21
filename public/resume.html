@@ -37,7 +37,8 @@
   body { border-top: 5px solid #b4532a; }
   h1 { font-size: 26pt; letter-spacing: 3px; margin: 0; text-align: center; font-weight: 700; color: #0f1e2e; }
   .tagline { text-align: center; font-size: 11pt; color: #333; margin-top: 4px; font-weight: 600; }
-  .contact { text-align: center; font-size: 9.5pt; color: #333; margin-top: 6px; }
+  .contact { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; row-gap: 2px;
+             text-align: center; font-size: 9.5pt; color: #333; margin-top: 6px; }
   .contact span { margin: 0 4px; color: #999; }
   h2 {
     font-size: 11pt; color: #b4532a; letter-spacing: 2px; text-transform: uppercase;
@@ -66,16 +67,55 @@
     background: #fff; color: #0f1e2e; cursor: pointer;
   }
   .toolbar button { background: #0f1e2e; color: #fff; border-color: #0f1e2e; }
-  @media (max-width: 760px) {
+  @media screen and (max-width: 760px) {
     body { margin: 0; padding: 64px 16px 24px; box-shadow: none; }
     .skills { grid-template-columns: 1fr; }
     h3, .sub { flex-direction: column; gap: 0; }
-    .toolbar { left: 16px; right: 16px; justify-content: flex-end; }
+    /* On phones the bar scrolls away with the page instead of floating over the text */
+    .toolbar { position: absolute; left: 16px; right: 16px; justify-content: flex-end; }
+  }
+
+  /* Collapsible blocks (phones only): architecture + case studies */
+  .rc-btn, .rc-head, .arch-mobile { display: none; }
+  @media screen and (max-width: 760px) {
+    .rc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+               padding: 10px 12px; border: 1px solid #ecd9cf; border-radius: 10px; background: #fbf6f3; margin-top: 6px; }
+    .rc-head span { font-weight: 600; color: #0f1e2e; }
+    .rc-case .case-title { display: flex; align-items: flex-start; gap: 12px; }
+    .rc-case .case-title .ct { flex: 1; }
+    .rc-btn {
+      position: relative; display: inline-grid; place-items: center; flex: none; width: 34px; height: 34px;
+      border-radius: 50%; border: 1px solid #e3c9bb; background: #fff; color: #0f1e2e; cursor: pointer;
+      transition: background .25s, border-color .25s, color .25s, transform .2s;
+    }
+    .rc-btn:active { transform: scale(.92); }
+    .rc-btn svg { position: absolute; transition: opacity .25s ease, transform .35s ease; }
+    .rc-btn .i-dots { fill: currentColor; }
+    .rc-btn .i-close { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; opacity: 0; transform: rotate(-90deg) scale(.6); }
+    .rc-btn.is-open { background: #b4532a; border-color: #b4532a; color: #fff; box-shadow: 0 6px 16px -6px #b4532a; }
+    .rc-btn.is-open .i-dots { opacity: 0; transform: rotate(90deg) scale(.6); }
+    .rc-btn.is-open .i-close { opacity: 1; transform: none; }
+    .collapsible:not(.open) .collapse-body { display: none; }
+    .collapsible.open .collapse-body { animation: rc-in .3s ease both; }
+    @keyframes rc-in { from { opacity: 0; transform: translateY(-4px); } }
+    /* On phones the wide ASCII diagram becomes a vertical flow */
+    .rc-arch .arch { display: none; }
+    .arch-mobile { display: block; list-style: none; padding: 0; margin: 10px 0 0; }
+    .arch-mobile li { position: relative; margin: 0 0 18px; padding: 8px 12px; border: 1px solid #e3c9bb; border-radius: 8px; background: #fbf6f3; }
+    .arch-mobile li:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -17px; transform: translateX(-50%); color: #b4532a; font-weight: 700; }
+    .arch-mobile b { display: block; font-size: 8.5pt; letter-spacing: .8px; color: #b4532a; text-transform: uppercase; }
+    .arch-mobile li.key { background: #b4532a; border-color: #b4532a; color: #fff; }
+    .arch-mobile li.key b { color: #ffe3d6; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .collapsible.open .collapse-body { animation: none; }
+    .rc-btn, .rc-btn svg { transition: none; }
   }
   @media print {
     html { background: #fff; }
     body { margin: 0; padding: 0; box-shadow: none; max-width: none; border-top: 0; }
-    .toolbar { display: none; }
+    .toolbar, .rc-btn, .rc-head, .arch-mobile { display: none !important; }
+    .collapse-body { display: block !important; }
     .arch, h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     h2, h3, .case-title { break-after: avoid; }
     li, .arch { break-inside: avoid; }
@@ -117,12 +157,24 @@
 </div>
 
 <h2>Integration &amp; Data Systems — Architecture at a Glance</h2>
+<div class="rc-arch collapsible">
+<div class="rc-head"><span>View the pipeline (6 stages)</span><button type="button" class="rc-btn" aria-expanded="false" aria-label="Show details"><svg class="i-dots" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg><svg class="i-close" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="collapse-body">
 <div class="arch">SOURCES         PROCESS                STORE &amp; WAREHOUSE      QUEUE                DESTINATIONS
                 ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐
 SFTP files  ─┐  │ ASP.NET Core API │   │ AWS S3 (Parquet) │   │ BullMQ on Redis  │ ┌► HubSpot CRM
 Partner APIs├─► │ FastAPI services │─► │ Snowflake stage  │─► │ per-client queue │─┼► Associations
 SQL Server  ─┘  │ CSV/JSON→Parquet │   │ COPY INTO        │   │ retry · backoff  │ └► Claude · MCP
                 └──────────────────┘   └──────────────────┘   └──────────────────┘</div>
+<ol class="arch-mobile">
+  <li><b>Sources</b>SFTP files · Partner APIs · SQL Server</li>
+  <li><b>Process</b>ASP.NET Core API · FastAPI services · CSV/JSON → Parquet</li>
+  <li><b>Store &amp; Warehouse</b>AWS S3 (Parquet) · Snowflake stage · COPY INTO</li>
+  <li class="key"><b>Queue</b>BullMQ on Redis · per-client queues · retry &amp; backoff</li>
+  <li><b>Destinations</b>HubSpot CRM · Associations API · Claude via MCP</li>
+</ol>
+</div>
+</div>
 <div class="metrics"><b>.NET</b> Web API core &nbsp;·&nbsp; <b>6</b> pipeline stages &nbsp;·&nbsp; <b>per-client</b> tokens &amp; queues &nbsp;·&nbsp; <b>parent → child</b> CRM sync order &nbsp;·&nbsp; <b>4</b> mapping strategies &nbsp;·&nbsp; raw files kept on S3 for replay</div>
 
 <h2>Professional Experience</h2>
@@ -160,29 +212,41 @@ SQL Server  ─┘  │ CSV/JSON→Parquet │   │ COPY INTO        │   │ 
 
 <h2>Flagship Case Studies</h2>
 
-<div class="case-title"><span class="tag">CASE 1 · FLAGSHIP —</span> Multi-tenant HubSpot CRM Integration <span class="stack">| ASP.NET Core · C# · HubSpot API · Associations API · BullMQ · Redis</span></div>
+<div class="rc-case collapsible">
+<div class="case-title"><span class="ct"><span class="tag">CASE 1 · FLAGSHIP —</span> Multi-tenant HubSpot CRM Integration <span class="stack">| ASP.NET Core · C# · HubSpot API · Associations API · BullMQ · Redis</span></span><button type="button" class="rc-btn" aria-expanded="false" aria-label="Show details"><svg class="i-dots" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg><svg class="i-close" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="collapse-body">
 <ul>
   <li><b>Problem:</b> Each client has its own HubSpot portal, and child records (Deals) cannot be linked before their parents (Companies, Contacts) exist.</li>
   <li><b>Built:</b> An ASP.NET Core Web API layer with client-scoped token connections, dependency-ordered sync with association linking, and per-client queues with retries and backoff.</li>
   <li><b>Impact:</b> One client’s rate limit or bad record no longer blocks the others, and every child record lands under the correct parent.</li>
-</ul>
+</ul></div>
+</div>
 
-<div class="case-title"><span class="tag">CASE 2 · DATA ENGINEERING —</span> Parquet Data Lake: S3 to Snowflake <span class="stack">| FastAPI · PyArrow · AWS S3 · Snowflake · SFTP</span></div>
+<div class="rc-case collapsible">
+<div class="case-title"><span class="ct"><span class="tag">CASE 2 · DATA ENGINEERING —</span> Parquet Data Lake: S3 to Snowflake <span class="stack">| FastAPI · PyArrow · AWS S3 · Snowflake · SFTP</span></span><button type="button" class="rc-btn" aria-expanded="false" aria-label="Show details"><svg class="i-dots" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg><svg class="i-close" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="collapse-body">
 <ul>
   <li><b>Problem:</b> Partner data arrived as inconsistent CSV/JSON files over SFTP and through APIs, and was slow to query.</li>
   <li><b>Built:</b> Separate FastAPI services for ingest, validation and transformation; partitioned Parquet on S3; Snowflake loads through external stages.</li>
   <li><b>Impact:</b> One repeatable path from raw partner file to queryable Snowflake table, with raw files retained on S3 for replay.</li>
-</ul>
+</ul></div>
+</div>
 
-<div class="case-title"><span class="tag">CASE 3 · APPLIED AI —</span> Claude + MCP Enterprise AI Layer <span class="stack">| Claude · FastMCP · OpenAI GPT · Python</span></div>
+<div class="rc-case collapsible">
+<div class="case-title"><span class="ct"><span class="tag">CASE 3 · APPLIED AI —</span> Claude + MCP Enterprise AI Layer <span class="stack">| Claude · FastMCP · OpenAI GPT · Python</span></span><button type="button" class="rc-btn" aria-expanded="false" aria-label="Show details"><svg class="i-dots" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg><svg class="i-close" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="collapse-body">
 <ul>
   <li><b>Built:</b> MCP tools giving Claude natural-language access to enterprise data, with token-based auth and per-user visibility enforced in the tool layer; LLM-assisted classification and mapping.</li>
-</ul>
+</ul></div>
+</div>
 
-<div class="case-title"><span class="tag">CASE 4 · DSA —</span> Algorithmic Data Mapping Framework <span class="stack">| Python · Hash Maps · Blocking · RapidFuzz · SQL Server</span></div>
+<div class="rc-case collapsible">
+<div class="case-title"><span class="ct"><span class="tag">CASE 4 · DSA —</span> Algorithmic Data Mapping Framework <span class="stack">| Python · Hash Maps · Blocking · RapidFuzz · SQL Server</span></span><button type="button" class="rc-btn" aria-expanded="false" aria-label="Show details"><svg class="i-dots" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg><svg class="i-close" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="collapse-body">
 <ul>
   <li><b>Built:</b> Four pluggable mapping strategies selected by data volume; hash-map indexes for O(1) exact lookups and blocking keys so fuzzy matching compares only plausible candidates instead of O(n × m) pairs.</li>
-</ul>
+</ul></div>
+</div>
 
 <h2>Key Projects</h2>
 
@@ -207,5 +271,15 @@ SQL Server  ─┘  │ CSV/JSON→Parquet │   │ COPY INTO        │   │ 
 <h3><span>B.Tech, Computer Science and Engineering — SRM Institute of Science and Technology</span><span class="when">Sep 2020 – Jun 2024</span></h3>
 <div class="sub"><span>CGPA: 9.29 / 10</span><span>Chennai, Tamil Nadu</span></div>
 
+<script>
+  document.querySelectorAll(".rc-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var open = btn.closest(".collapsible").classList.toggle("open");
+      btn.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", open);
+      btn.setAttribute("aria-label", open ? "Hide details" : "Show details");
+    });
+  });
+</script>
 </body>
 </html>

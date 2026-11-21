@@ -1,3 +1,4 @@
+import ExpandButton from "./ExpandButton";
 import SectionHead from "./SectionHead";
 import { architecture } from "@/data/portfolio";
 
@@ -12,11 +13,16 @@ export default function Architecture() {
         />
         <div className="arch">
           {architecture.map((a, i) => (
-            <div key={a.n} className="arch-step reveal spot" style={{ transitionDelay: `${i * 70}ms` }}>
-              <div className="arch-num mono">{a.n}</div>
-              <h3>{a.title}</h3>
-              <p className="muted">{a.text}</p>
-              <div className="mono arch-tech">{a.tech}</div>
+            <div key={a.n} className="arch-step collapsible reveal spot" style={{ transitionDelay: `${i * 70}ms` }}>
+              <div className="arch-head">
+                <div className="arch-num mono">{a.n}</div>
+                <h3>{a.title}</h3>
+                <ExpandButton label={a.title} />
+              </div>
+              <div className="collapse-body">
+                <p className="muted">{a.text}</p>
+                <div className="mono arch-tech">{a.tech}</div>
+              </div>
             </div>
           ))}
         </div>
