@@ -5,16 +5,17 @@ import { useEffect, useRef } from "react";
 // Drifting "integration network" behind the hero: nodes link up when close and lean toward the mouse.
 // Stops drawing once the hero is scrolled out of view, and draws one still frame for reduced motion.
 export default function NetworkCanvas() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = ref.current;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mouse = { x: -9999, y: -9999 };
     let w = 0;
     let h = 0;
-    let nodes = [];
+    let nodes: { x: number; y: number; vx: number; vy: number }[] = [];
     let raf = 0;
 
     const color = () => getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#ff8a5c";
@@ -80,7 +81,7 @@ export default function NetworkCanvas() {
       raf = requestAnimationFrame(loop);
     };
 
-    const onMove = (e) => {
+    const onMove = (e: PointerEvent) => {
       const r = canvas.getBoundingClientRect();
       mouse.x = e.clientX - r.left;
       mouse.y = e.clientY - r.top;

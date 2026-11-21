@@ -3,8 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 
 // Animates "92%" or "9.29" from 0 when it first scrolls into view; keeps any prefix/suffix.
-export default function CountUp({ value, duration = 1400 }) {
-  const ref = useRef(null);
+interface CountUpProps {
+  value: string;
+  duration?: number;
+}
+
+export default function CountUp({ value, duration = 1400 }: CountUpProps) {
+  const ref = useRef<HTMLSpanElement>(null);
   const [shown, setShown] = useState(value);
 
   useEffect(() => {
@@ -14,13 +19,13 @@ export default function CountUp({ value, duration = 1400 }) {
     const [, pre, num, post] = match;
     const target = parseFloat(num);
     const decimals = (num.split(".")[1] || "").length;
-    const format = (n) => `${pre}${n.toFixed(decimals)}${post}`;
+    const format = (n: number) => `${pre}${n.toFixed(decimals)}${post}`;
     setShown(format(0));
 
     let raf = 0;
     const animate = () => {
       const start = performance.now();
-      const tick = (now) => {
+      const tick = (now: number) => {
         const p = Math.min((now - start) / duration, 1);
         setShown(format(target * (1 - Math.pow(1 - p, 3))));
         if (p < 1) raf = requestAnimationFrame(tick);
@@ -28,7 +33,8 @@ export default function CountUp({ value, duration = 1400 }) {
       raf = requestAnimationFrame(tick);
     };
     const onScroll = () => {
-      if (ref.current.getBoundingClientRect().top < window.innerHeight * 0.92) {
+      const el = ref.current;
+      if (el && el.getBoundingClientRect().top < window.innerHeight * 0.92) {
         window.removeEventListener("scroll", onScroll);
         animate();
       }

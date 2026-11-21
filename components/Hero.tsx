@@ -13,12 +13,14 @@ const H = 38;
 const ROWS = [58, 138, 218]; // vertical centre of each node row
 
 // [fromColumn, fromRow, toRow] — every wire goes from one column to the next.
-const WIRES = [
+type Wire = [fromColumn: number, fromRow: number, toRow: number];
+
+const WIRES: Wire[] = [
   [0, 0, 0], [0, 1, 0], [0, 1, 1], [0, 2, 1], [0, 2, 2],
   [1, 0, 1], [1, 1, 1], [1, 1, 0], [1, 2, 0], [1, 2, 2],
 ];
 
-const wirePath = ([c, from, to]) => {
+const wirePath = ([c, from, to]: Wire) => {
   const x1 = COLS[c].x + W;
   const x2 = COLS[c + 1].x;
   const y1 = ROWS[from];

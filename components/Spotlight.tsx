@@ -6,8 +6,8 @@ import { useEffect } from "react";
 // and, on `.tilt` cards, a slight 3D tilt toward the cursor.
 export default function Spotlight() {
   useEffect(() => {
-    const onMove = (e) => {
-      const el = e.target.closest?.(".spot");
+    const onMove = (e: PointerEvent) => {
+      const el = (e.target as Element | null)?.closest<HTMLElement>(".spot");
       if (!el) return;
       const r = el.getBoundingClientRect();
       el.style.setProperty("--mx", `${e.clientX - r.left}px`);

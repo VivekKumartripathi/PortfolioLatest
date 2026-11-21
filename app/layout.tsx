@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Manrope, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { themeInitScript } from "@/components/theme";
@@ -19,14 +21,14 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Vivek Kumar - API Integration & HubSpot CRM Engineer | AI-ML Automation | Full-Stack",
   description:
     "Vivek Kumar — Software Developer building API integrations, HubSpot CRM sync pipelines and queue-based backend systems — primarily C# / ASP.NET Core Web APIs, plus Python, Node.js and Next.js.",
   icons: { icon: "/favicon.svg" },
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     // Font variables go on <html> so the :root tokens in globals.css can read them.
     // suppressHydrationWarning: the inline script may set data-theme before React hydrates.

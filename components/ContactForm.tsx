@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { profile } from "@/data/portfolio";
 
 // Submissions go to Netlify Forms (registered by public/__forms.html), which emails them to you.
 export default function ContactForm() {
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     setStatus("sending");
@@ -15,7 +15,8 @@ export default function ContactForm() {
       const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString(),
+        // FormData holds only text fields here, so it is safe to treat as string pairs.
+        body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
       });
       if (!res.ok) throw new Error(res.statusText);
       form.reset();

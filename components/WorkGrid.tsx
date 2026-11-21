@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Arrow from "./Arrow";
+import type { Project } from "@/data/portfolio";
 
 // Project cards with category filter tabs. Cards re-animate in (CSS `card-in`) whenever the filter changes.
-export default function WorkGrid({ projects }) {
+export default function WorkGrid({ projects }: { projects: Project[] }) {
   const categories = ["All", ...new Set(projects.map((p) => p.category))];
   const [filter, setFilter] = useState("All");
   const shown = filter === "All" ? projects : projects.filter((p) => p.category === filter);

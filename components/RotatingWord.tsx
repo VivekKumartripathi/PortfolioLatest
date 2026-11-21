@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 // Typewriter that types, pauses, deletes and moves to the next word.
-export default function RotatingWord({ words }) {
+export default function RotatingWord({ words }: { words: string[] }) {
   const [index, setIndex] = useState(0);
   const [text, setText] = useState(words[0]);
   const [deleting, setDeleting] = useState(false);

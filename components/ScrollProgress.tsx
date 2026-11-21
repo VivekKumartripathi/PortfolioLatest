@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from "react";
 
 // Thin accent bar showing scroll progress, plus a back-to-top button after the first screen.
 export default function ScrollProgress() {
-  const bar = useRef(null);
+  const bar = useRef<HTMLDivElement>(null);
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      bar.current.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+      if (bar.current) bar.current.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
       setShowTop(window.scrollY > 900);
     };
     onScroll();

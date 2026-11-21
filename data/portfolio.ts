@@ -1,4 +1,66 @@
 // All portfolio content lives here. Edit this file to update the site.
+// The interfaces below describe each kind of entry, so a typo or missing field is caught at build time.
+
+export interface Link {
+  label: string;
+  href: string;
+}
+
+export interface Step {
+  n: string;
+  title: string;
+  text: string;
+}
+
+export interface Stat {
+  value: string;
+  label: string;
+  text: string;
+}
+
+export interface ArchitectureStep extends Step {
+  tech: string;
+}
+
+export interface CaseStudy {
+  tag: string;
+  title: string;
+  subtitle: string;
+  problem: string;
+  built: string[];
+  impact: string;
+  stack: string[];
+}
+
+export interface Project {
+  category: string;
+  title: string;
+  description: string;
+  outcome: string;
+  stack: string[];
+  link?: Link;
+}
+
+export interface Capability {
+  title: string;
+  text: string;
+  items: string[];
+  featured?: boolean;
+}
+
+export interface Job {
+  role: string;
+  company: string;
+  location: string;
+  dates: string;
+  current?: boolean;
+  points: string[];
+}
+
+export interface Principle {
+  title: string;
+  text: string;
+}
 
 export const profile = {
   name: "Vivek Kumar",
@@ -22,19 +84,19 @@ export const profile = {
     "Software Developer with 2+ years building C# / ASP.NET Core Web APIs — the backbone of multi-tenant HubSpot CRM integrations — plus FastAPI data pipelines into S3 and Snowflake and Claude-powered AI tooling, turning scattered enterprise data into clean, synced, trustworthy records.",
 };
 
-export const heroSteps = [
+export const heroSteps: Step[] = [
   { n: "01", title: "Understand the data", text: "Map sources, schemas and the parent–child rules behind them." },
   { n: "02", title: "Engineer the pipeline", text: "APIs, queues and workers that sync without losing a record." },
   { n: "03", title: "Make it observable", text: "Retries, audit logs and alerts so failures surface, not hide." },
 ];
 
 // Scrolling tech strip under the hero.
-export const marquee = [
+export const marquee: string[] = [
   "C#", ".NET", "ASP.NET Core Web API", "Entity Framework", "HubSpot CRM", "Snowflake", "AWS S3", "FastAPI",
   "Parquet", "BullMQ", "Redis", "Claude", "MCP", "Node.js", "Next.js", "React", "Python", "SQL Server", "SQLite", "PostgreSQL", "Docker", "OpenAI GPT", "RAG", "SFTP",
 ];
 
-export const impact = [
+export const impact: Stat[] = [
   { value: ".NET + FastAPI", label: "API integration to CRM", text: "C# / ASP.NET Core Web APIs and Python FastAPI services that connect source systems to HubSpot CRM" },
   { value: "2+", label: "Years in production", text: "Enterprise backend, integration and data work across two companies" },
   { value: "4", label: "Mapping strategies", text: "In-Memory, SQL, Hybrid and Index-based data mapping framework" },
@@ -43,7 +105,7 @@ export const impact = [
   { value: "9.29", label: "B.Tech CGPA", text: "Computer Science & Engineering, SRM IST" },
 ];
 
-export const architecture = [
+export const architecture: ArchitectureStep[] = [
   {
     n: "01",
     title: "Ingest",
@@ -82,7 +144,7 @@ export const architecture = [
   },
 ];
 
-export const caseStudies = [
+export const caseStudies: CaseStudy[] = [
   {
     tag: "Flagship",
     title: "Multi-tenant HubSpot CRM Integration",
@@ -139,7 +201,7 @@ export const caseStudies = [
   },
 ];
 
-export const projects = [
+export const projects: Project[] = [
   {
     category: "Engineering",
     title: "FinanceDashboard — Excel Add-in",
@@ -195,7 +257,7 @@ export const projects = [
   },
 ];
 
-export const capabilities = [
+export const capabilities: Capability[] = [
   {
     title: ".NET & API Engineering",
     text: "My core stack — C# Web APIs that everything else plugs into.",
@@ -229,7 +291,7 @@ export const capabilities = [
   },
 ];
 
-export const experience = [
+export const experience: Job[] = [
   {
     role: "Software Developer",
     company: "GlobalData Research Center Pvt Ltd.",
@@ -285,7 +347,7 @@ export const education = {
   location: "Chennai, Tamil Nadu",
 };
 
-export const principles = [
+export const principles: Principle[] = [
   { title: "Data quality first", text: "A sync is only as good as the record it writes. Normalize before you integrate." },
   { title: "Respect the hierarchy", text: "Parents before children — CRM objects are created in dependency order." },
   { title: "Queue the slow parts", text: "Anything that calls an external API belongs in a job, not a request." },

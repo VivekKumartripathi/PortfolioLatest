@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   // Static HTML export to /out — deployable on Netlify, GitHub Pages or Vercel.
   output: "export",
   images: { unoptimized: true },
