@@ -1,24 +1,38 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { profile } from "@/data/portfolio";
+import { contactForm, profile } from "@/data/portfolio";
 
-// Submissions go to Netlify Forms (registered by public/__forms.html), which emails them to you.
+// Submissions go to Web3Forms, which emails them to the inbox the access key was created with.
+// It is a plain HTTPS API, so the form works the same on Netlify, Vercel or localhost.
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    const data = new FormData(form);
+    // Honeypot: real visitors never see this field, bots usually fill it in.
+    if (data.get("botcheck")) return;
+
     setStatus("sending");
     try {
-      const res = await fetch("/__forms.html", {
+      const res = await fetch(contactForm.endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        // FormData holds only text fields here, so it is safe to treat as string pairs.
-        body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: contactForm.accessKey,
+          subject: `Portfolio enquiry from ${data.get("name")}`,
+          from_name: "Portfolio contact form",
+          name: data.get("name"),
+          email: data.get("email"),
+          company: data.get("company"),
+          project: data.get("project"),
+          message: data.get("message"),
+        }),
       });
-      if (!res.ok) throw new Error(res.statusText);
+      const result: { success?: boolean } = await res.json();
+      if (!res.ok || !result.success) throw new Error("Send failed");
       form.reset();
       setStatus("sent");
     } catch {
@@ -40,11 +54,10 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="form-card" name="contact" onSubmit={onSubmit}>
-      <input type="hidden" name="form-name" value="contact" />
+    <form className="form-card" onSubmit={onSubmit}>
       <p className="hidden-field">
         <label>
-          Don’t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+          Don’t fill this out: <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" />
         </label>
       </p>
 

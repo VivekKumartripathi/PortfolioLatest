@@ -84,6 +84,14 @@ export const profile = {
     "Software Developer with 2+ years building C# / ASP.NET Core Web APIs — the backbone of multi-tenant HubSpot CRM integrations — plus FastAPI data pipelines into S3 and Snowflake and Claude-powered AI tooling, turning scattered enterprise data into clean, synced, trustworthy records.",
 };
 
+// Contact form → email via Web3Forms (works on any host).
+// Get a free access key at https://web3forms.com using the inbox that should receive messages, then paste it here.
+// The key is designed to be public: it only decides which inbox the messages go to.
+export const contactForm = {
+  endpoint: "https://api.web3forms.com/submit",
+  accessKey: "YOUR_WEB3FORMS_ACCESS_KEY",
+};
+
 export const heroSteps: Step[] = [
   { n: "01", title: "Understand the data", text: "Map sources, schemas and the parent–child rules behind them." },
   { n: "02", title: "Engineer the pipeline", text: "APIs, queues and workers that sync without losing a record." },
