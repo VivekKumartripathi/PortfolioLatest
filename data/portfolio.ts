@@ -89,7 +89,7 @@ export const profile = {
 // The key is designed to be public: it only decides which inbox the messages go to.
 export const contactForm = {
   endpoint: "https://api.web3forms.com/submit",
-  accessKey: "YOUR_WEB3FORMS_ACCESS_KEY",
+  accessKey: "6c3c6127-a47e-440d-8bff-d5d8dbed480c",
 };
 
 export const heroSteps: Step[] = [
