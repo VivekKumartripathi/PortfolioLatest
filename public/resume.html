@@ -57,9 +57,9 @@
   .skills { display: grid; grid-template-columns: 168px 1fr; gap: 3px 10px; }
   .skills b { color: #b4532a; }
   .arch {
-    font-family: Consolas, "Courier New", monospace; font-size: 7.8pt; background: #fbf6f3;
+    font-family: Consolas, "Courier New", monospace; font-size: 7.6pt; background: #fbf6f3;
     border: 1px solid #ecd9cf; border-radius: 4px; padding: 8px 10px; margin: 4px 0;
-    white-space: pre; overflow-x: auto; line-height: 1.35; color: #2a1a12;
+    white-space: pre; overflow-x: auto; line-height: 1.18; color: #2a1a12;
   }
   .metrics { font-size: 9.5pt; color: #333; margin-top: 4px; }
   .case-title { font-weight: 700; margin-top: 8px; color: #0f1e2e; }
@@ -137,18 +137,34 @@
 </div>
 
 <h2>Integration &amp; Data Systems — Architecture at a Glance</h2>
-<div class="arch">SOURCES         PROCESS                STORE &amp; WAREHOUSE      QUEUE                DESTINATIONS
-                ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐
-SFTP files  ─┐  │ ASP.NET Core API │   │ AWS S3 (Parquet) │   │ BullMQ on Redis  │ ┌► HubSpot CRM
-Partner APIs├─► │ FastAPI services │─► │ Snowflake stage  │─► │ per-client queue │─┼► Associations
-SQL Server  ─┘  │ CSV/JSON→Parquet │   │ COPY INTO        │   │ retry · backoff  │ └► Claude · MCP
-                └──────────────────┘   └──────────────────┘   └──────────────────┘</div>
+<div class="arch">SOURCES &amp; STORES                 API &amp; PROCESSING                    QUEUE · CRM · AI
+┌───────────────┐                ┌───────────────────────┐           ┌───────────────────────┐
+│ Tenant apps   │───────────────►│ ASP.NET Core Web API  │──────────►│ BullMQ on Redis       │
+│ Partner APIs  │  REST · OAuth  │ auth · tenant tokens  │  enqueue  │ per-client queues     │
+│ Webhooks      │                │ validation · mapping  │           │ retry · backoff       │
+└───────────────┘                └───────────┬───────────┘           └───────────┬───────────┘
+                                             │ REST                              │ workers
+┌───────────────┐                ┌───────────▼───────────┐           ┌───────────▼───────────┐
+│ Partner files │───────────────►│ FastAPI services      │           │ HubSpot CRM sync      │
+│ CSV · JSON    │  SFTP drop     │ ingest · validate     │           │ Company→Contact→Deal  │
+└───────────────┘                │ CSV/JSON → Parquet    │           │ Associations · batch  │
+                                 └───────────┬───────────┘           └───────────────────────┘
+                                             │ boto3
+┌───────────────┐                ┌───────────▼───────────┐           ┌───────────────────────┐
+│ Snowflake     │◄───────────────│ AWS S3 data lake      │──────────►│ Claude via MCP        │
+│ SQL analytics │  COPY INTO     │ raw · clean · curated │  MCP      │ token auth · scoped   │
+└───────────────┘                └───────────────────────┘           └───────────────────────┘
+
+DB access     SQL Server ◄─ EF Core / Dapper ─ ASP.NET Core API
+Cross-cutting per-tenant isolation · idempotent jobs · logs &amp; audit trail</div>
 <ol class="arch-mobile">
-  <li><b>Sources</b>SFTP files · Partner APIs · SQL Server</li>
-  <li><b>Process</b>ASP.NET Core API · FastAPI services · CSV/JSON → Parquet</li>
-  <li><b>Store &amp; Warehouse</b>AWS S3 (Parquet) · Snowflake stage · COPY INTO</li>
-  <li class="key"><b>Queue</b>BullMQ on Redis · per-client queues · retry &amp; backoff</li>
-  <li><b>Destinations</b>HubSpot CRM · Associations API · Claude via MCP</li>
+  <li><b>Sources</b>Tenant apps · Partner APIs · Webhooks · SFTP partner files (CSV, JSON)</li>
+  <li><b>API layer (.NET)</b>ASP.NET Core Web API — auth, tenant tokens, validation, mapping · EF Core / Dapper → SQL Server</li>
+  <li><b>Processing (Python)</b>FastAPI services — ingest, validate, CSV/JSON → Parquet</li>
+  <li><b>Storage &amp; warehouse</b>AWS S3 data lake (raw · clean · curated) → Snowflake via COPY INTO</li>
+  <li class="key"><b>Queue</b>BullMQ on Redis — per-client queues, retry &amp; backoff, idempotent jobs</li>
+  <li><b>CRM sync</b>HubSpot — Company → Contact → Deal, Associations API, batch upserts</li>
+  <li><b>AI layer</b>Claude via MCP tools — token auth, per-user scope</li>
 </ol>
 <div class="metrics"><b>.NET</b> Web API core &nbsp;·&nbsp; <b>6</b> pipeline stages &nbsp;·&nbsp; <b>per-client</b> tokens &amp; queues &nbsp;·&nbsp; <b>parent → child</b> CRM sync order &nbsp;·&nbsp; <b>4</b> mapping strategies &nbsp;·&nbsp; raw files kept on S3 for replay</div>
 
