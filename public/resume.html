@@ -28,7 +28,7 @@
   body {
     font-family: Calibri, "Segoe UI", Arial, sans-serif;
     font-size: 10.5pt;
-    line-height: 1.36;
+    line-height: 1.3;
     color: #1a1a1a;
     max-width: 210mm;
     margin: 24px auto;
@@ -46,14 +46,14 @@
   .contact span { margin: 0 4px; color: #999; }
   h2 {
     font-size: 11pt; color: #b4532a; letter-spacing: 2px; text-transform: uppercase;
-    margin: 14px 0 6px; padding-bottom: 3px; border-bottom: 1.2pt solid #b4532a; font-weight: 700;
+    margin: 11px 0 5px; padding-bottom: 2px; border-bottom: 1.2pt solid #b4532a; font-weight: 700;
   }
   h2::before { content: ""; display: inline-block; width: 7px; height: 7px; background: #b4532a; margin-right: 8px; vertical-align: 1px; }
-  h3 { font-size: 10.5pt; margin: 9px 0 1px; font-weight: 700; display: flex; justify-content: space-between; gap: 12px; color: #0f1e2e; }
+  h3 { font-size: 10.5pt; margin: 7px 0 1px; font-weight: 700; display: flex; justify-content: space-between; gap: 12px; color: #0f1e2e; }
   h3 .when { font-weight: 600; color: #444; white-space: nowrap; }
   .sub { display: flex; justify-content: space-between; font-style: italic; color: #333; margin-bottom: 2px; }
   ul { margin: 3px 0 0; padding-left: 17px; }
-  li { margin: 2px 0; }
+  li { margin: 1px 0; }
   .skills { display: grid; grid-template-columns: 168px 1fr; gap: 3px 10px; }
   .skills b { color: #b4532a; }
   .arch {
@@ -62,7 +62,8 @@
     white-space: pre; overflow-x: auto; line-height: 1.18; color: #2a1a12;
   }
   .metrics { font-size: 9.5pt; color: #333; margin-top: 4px; }
-  .case-title { font-weight: 700; margin-top: 8px; color: #0f1e2e; }
+  .case-title { font-weight: 700; margin-top: 6px; color: #0f1e2e; }
+  ul.flat { padding-left: 16px; }
   .case-title .tag { font-weight: 700; color: #b4532a; letter-spacing: .5px; }
   .case-title .stack { font-weight: 400; font-style: italic; color: #444; }
   .toolbar { position: fixed; top: 16px; right: 16px; display: flex; gap: 8px; }
@@ -116,24 +117,24 @@
 
 <h2>Professional Summary</h2>
 <p>
-  Software Developer with <b>2+ years</b> building <b>C# / ASP.NET Core Web APIs</b> — my primary stack — that power
-  <b>multi-tenant HubSpot CRM integrations</b> and <b>data pipelines</b>, alongside Python and Node.js services. Designs <b>system architecture</b> with <b>FastAPI</b> microservices, <b>Parquet on AWS S3</b>,
-  <b>Snowflake</b> and <b>BullMQ + Redis</b> job queues. Models <b>CRM parent–child objects and associations</b> with per-client token
-  connections, and builds <b>LLM and Claude (MCP)</b> tools that bring AI to enterprise data. Strong foundation in <b>data structures and algorithms</b>.
+  Software Developer with <b>2+ years</b> building <b>C# / ASP.NET Core Web APIs</b> for <b>multi-tenant HubSpot CRM integrations</b>
+  and <b>data pipelines</b> (FastAPI, AWS S3, Snowflake, BullMQ + Redis). Builds <b>Claude / MCP</b> AI tooling on enterprise data,
+  with a strong base in <b>data structures, algorithms and machine learning</b>.
 </p>
 
 <h2>Technical Skills</h2>
 <div class="skills">
-  <b>.NET &amp; API Engineering</b><span>C# · ASP.NET Core Web API · .NET · Entity Framework Core · Dapper · LINQ · REST / OpenAPI (Swagger) · Middleware &amp; Filters · JWT / OAuth · HttpClientFactory · Background Services · Quartz.NET · xUnit</span>
-  <b>API &amp; CRM Integration</b><span>HubSpot CRM API (Objects, Associations, Custom Objects, Batch) · Parent–Child Object Modelling · Multi-tenant Token / OAuth · REST APIs · Webhooks · Swagger · Postman · HttpClientFactory</span>
-  <b>Data Engineering &amp; Cloud</b><span>Snowflake (Stages, COPY INTO) · AWS S3 · Parquet · PyArrow · boto3 · Pandas · NumPy · SFTP / FTP (FileZilla) · ETL Pipelines · Docker</span>
-  <b>Architecture &amp; Queues</b><span>System Architecture · Microservices · FastAPI · Node.js · Flask · BullMQ · Redis · Docker</span>
-  <b>AI, LLMs &amp; ML</b><span>Claude · Claude Code · MCP / FastMCP · AI Agents · RAG · Vector Embeddings · OpenAI GPT APIs · LangChain · Hugging Face · Prompt Engineering · NLP · ML · DL</span>
-  <b>Python &amp; ML Libraries</b><span>scikit-learn · TensorFlow · PyTorch · Keras · OpenCV · NumPy · Pandas · SciPy · PyArrow · Matplotlib · Pillow · RapidFuzz · Jupyter · Spotipy · TQDM</span>
-  <b>Languages</b><span>C# · Python · JavaScript · TypeScript · SQL · C/C++ · HTML · CSS</span>
-  <b>Frontend</b><span>Next.js · React.js · Angular · React Native · Chart.js · Bootstrap</span>
-  <b>Databases</b><span>Snowflake · Microsoft SQL Server · PostgreSQL · SQLite · MySQL · MongoDB · Redis</span>
-  <b>Tools &amp; Practices</b><span>Git · GitHub Actions · Azure DevOps · Jira · CI/CD · Docker · Data Structures &amp; Algorithms · Unit Testing (xUnit)</span>
+  <b>.NET &amp; APIs</b><span>C# · ASP.NET Core Web API · EF Core · Dapper · LINQ · REST / OpenAPI · JWT / OAuth</span>
+  <b>CRM Integration</b><span>HubSpot CRM API · Custom Objects · Associations API · Batch APIs · Webhooks · OAuth</span>
+  <b>Data &amp; Cloud</b><span>Snowflake · AWS S3 · Parquet · PyArrow · boto3 · ETL Pipelines · SFTP · Docker</span>
+  <b>Architecture</b><span>System Design · Microservices · FastAPI · Flask · Node.js · BullMQ · Redis</span>
+  <b>AI &amp; LLMs</b><span>Claude · MCP / FastMCP · AI Agents · RAG · OpenAI GPT · LangChain · Prompt Engineering</span>
+  <b>Machine Learning</b><span>SVM · Decision Trees · Random Forest · K-Means · Gradient Descent · Confusion Matrix</span>
+  <b>Python &amp; ML Libraries</b><span>scikit-learn · TensorFlow · PyTorch · Keras · OpenCV · Pandas · NumPy · SciPy · Matplotlib</span>
+  <b>Languages</b><span>C# · Python · TypeScript · JavaScript · SQL · C/C++</span>
+  <b>Frontend</b><span>Next.js · React.js · Angular · HTML · CSS</span>
+  <b>Databases</b><span>SQL Server · Snowflake · PostgreSQL · SQLite · MySQL · MongoDB · Redis</span>
+  <b>Tools</b><span>Git · GitHub Actions · Azure DevOps · Jira · CI/CD · Quartz.NET</span>
 </div>
 
 <h2>Integration &amp; Data Systems — Architecture at a Glance</h2>
@@ -178,89 +179,70 @@ Principles  tenant isolation · idempotent jobs · retries with backoff · paren
 <h3><span>Software Developer — GlobalData Research Center Pvt Ltd.</span><span class="when">Oct 2025 – Present</span></h3>
 <div class="sub"><span>API Integration · HubSpot CRM · Data Pipelines · Applied AI</span><span>Hyderabad</span></div>
 <ul>
-  <li><b>.NET Web APIs:</b> Built <b>C# / ASP.NET Core Web APIs</b> as the core integration layer — tenant connections, HubSpot sync orchestration, mapping and data-processing endpoints — using <b>Entity Framework Core and Dapper</b> over SQL Server.</li>
-  <li><b>Multi-tenant CRM integration:</b> Architected a HubSpot CRM integration where each client connects with its own private-app / OAuth token, stored encrypted and scoped per tenant.</li>
-  <li><b>Parent–child objects:</b> Modelled Company → Contact → Deal → custom object hierarchies and synced them in dependency order through the HubSpot Objects and <b>Associations APIs</b> with batch upserts.</li>
-  <li><b>Queue architecture:</b> Designed background sync on <b>BullMQ and Redis</b> with per-client queues, exponential backoff for API rate limits (HTTP 429) and idempotent jobs, so failed calls never drop records.</li>
-  <li><b>Data pipelines:</b> Built multiple <b>FastAPI</b> microservices that validate and convert CSV, JSON and SQL data into partitioned <b>Parquet</b> (Pandas, PyArrow) and upload it to <b>AWS S3</b> with boto3.</li>
-  <li><b>Warehouse:</b> Loaded curated S3 data into <b>Snowflake</b> through external stages and COPY INTO for SQL analytics and downstream CRM sync.</li>
-  <li><b>File transfer:</b> Managed partner data exchange over <b>SFTP / FTP (FileZilla)</b> and automated file pickup into the ingestion pipeline.</li>
-  <li><b>Algorithms:</b> Designed a configurable data mapping framework (In-Memory, SQL, Hybrid, Index-based) using <b>hash-map indexing and blocking keys</b> to reduce fuzzy-match comparisons; normalized entities with RapidFuzz, Cleanco and PyCountry.</li>
-  <li><b>AI &amp; LLMs:</b> Built custom <b>MCP</b> tools with FastMCP connecting enterprise data to <b>Claude</b>, with token-based auth and user visibility controls; applied Claude and GPT APIs to classification and automated mapping.</li>
-  <li><b>Services &amp; UI:</b> Integrated ASP.NET Core with Python services using HttpClientFactory and Requests (auth headers, token refresh, retries) and built <b>React.js</b> interfaces for mapping and processing workflows.</li>
+  <li><b>.NET Web APIs:</b> Built the <b>C# / ASP.NET Core</b> integration layer — tenant connections, sync orchestration, mapping — on <b>EF Core, Dapper and SQL Server</b>.</li>
+  <li><b>Multi-tenant HubSpot:</b> Per-client OAuth / private-app tokens, encrypted and tenant-scoped; Company → Contact → Deal → custom objects synced in order via the <b>Associations API</b> with batch upserts.</li>
+  <li><b>Queues:</b> <b>BullMQ + Redis</b> per-client queues with exponential backoff on HTTP 429 and idempotent jobs — no lost records.</li>
+  <li><b>Data pipelines:</b> <b>FastAPI</b> services turn CSV / JSON / SQL into partitioned <b>Parquet on AWS S3</b>, loaded into <b>Snowflake</b> via external stages and COPY INTO; partner files over SFTP.</li>
+  <li><b>Mapping &amp; DSA:</b> Configurable mapping framework (In-Memory, SQL, Hybrid, Index) with <b>hash-map indexes and blocking keys</b> to cut fuzzy-match comparisons (RapidFuzz).</li>
+  <li><b>AI &amp; LLMs:</b> <b>MCP tools</b> (FastMCP) connecting enterprise data to <b>Claude</b> with token auth and per-user scope; Claude / GPT APIs for classification and auto-mapping.</li>
+  <li><b>Services &amp; UI:</b> ASP.NET Core ↔ Python integration via HttpClientFactory (auth, token refresh, retries); <b>React.js</b> UIs for mapping workflows.</li>
 </ul>
 
 <h3><span>Software Developer — Audree Infotech Pvt Ltd.</span><span class="when">Jul 2024 – Oct 2025</span></h3>
 <div class="sub"><span>Enterprise .NET Applications</span><span>Hyderabad</span></div>
 <ul>
-  <li>Built <b>RESTful ASP.NET Core Web APIs</b> and enterprise applications in <b>C#, ASP.NET, Entity Framework and SQL Server</b> for business workflows and data management.</li>
-  <li>Implemented real-time PDF generation, dynamic document creation and PDF merging using <b>iTextSharp and Aspose.PDF</b>.</li>
-  <li>Built a <b>VSTO Microsoft Word Add-in</b> supporting document editing, read/write operations and Track Changes.</li>
-  <li>Created <b>Chart.js</b> dashboards and automated scheduled Excel reports and email distribution with <b>Quartz.NET</b>.</li>
-  <li>Implemented logging and audit trails; used <b>Azure DevOps</b> for source control, code reviews and CI/CD pipelines.</li>
+  <li>Built <b>RESTful ASP.NET Core APIs</b> and enterprise apps with <b>C#, Entity Framework and SQL Server</b>.</li>
+  <li>Real-time PDF generation and merging (<b>iTextSharp, Aspose.PDF</b>); <b>VSTO Word add-in</b> with Track Changes.</li>
+  <li><b>Chart.js</b> dashboards and scheduled Excel reports emailed via <b>Quartz.NET</b>; logging, code reviews and CI/CD on <b>Azure DevOps</b>.</li>
 </ul>
 
 <h3><span>Machine Learning Research Intern — SRM Institute of Science and Technology</span><span class="when">Aug 2022 – Feb 2023</span></h3>
-<div class="sub"><span>Research</span><span>Chennai</span></div>
 <ul>
-  <li>Built ML models for <b>Li-ion battery lifecycle prediction</b> from charge/discharge degradation data using regression, SVR, ANN and clustering analysis.</li>
+  <li>ML models for <b>Li-ion battery lifecycle prediction</b> from charge/discharge data (regression, SVR, ANN, clustering).</li>
 </ul>
 
 <h2>Flagship Case Studies</h2>
 
-<div class="case-title"><span class="tag">CASE 1 · FLAGSHIP —</span> Multi-tenant HubSpot CRM Integration <span class="stack">| ASP.NET Core · C# · HubSpot API · Associations API · BullMQ · Redis</span></div>
+<div class="case-title"><span class="tag">CASE 1 · FLAGSHIP —</span> Multi-tenant HubSpot CRM Integration <span class="stack">| ASP.NET Core · HubSpot API · BullMQ · Redis</span></div>
 <ul>
-  <li><b>Problem:</b> Each client has its own HubSpot portal, and child records (Deals) cannot be linked before their parents (Companies, Contacts) exist.</li>
-  <li><b>Built:</b> An ASP.NET Core Web API layer with client-scoped token connections, dependency-ordered sync with association linking, and per-client queues with retries and backoff.</li>
-  <li><b>Impact:</b> One client’s rate limit or bad record no longer blocks the others, and every child record lands under the correct parent.</li>
+  <li><b>Problem:</b> child records (Deals) can’t link before their parents exist — across many client portals.</li>
+  <li><b>Built &amp; impact:</b> tenant-scoped tokens, dependency-ordered sync and per-client queues — one client’s rate limit never blocks another, and every child lands under the right parent.</li>
 </ul>
 
-<div class="case-title"><span class="tag">CASE 2 · DATA ENGINEERING —</span> Parquet Data Lake: S3 to Snowflake <span class="stack">| FastAPI · PyArrow · AWS S3 · Snowflake · SFTP</span></div>
+<div class="case-title"><span class="tag">CASE 2 · DATA ENGINEERING —</span> Parquet Data Lake: S3 → Snowflake <span class="stack">| FastAPI · PyArrow · AWS S3 · Snowflake</span></div>
 <ul>
-  <li><b>Problem:</b> Partner data arrived as inconsistent CSV/JSON files over SFTP and through APIs, and was slow to query.</li>
-  <li><b>Built:</b> Separate FastAPI services for ingest, validation and transformation; partitioned Parquet on S3; Snowflake loads through external stages.</li>
-  <li><b>Impact:</b> One repeatable path from raw partner file to queryable Snowflake table, with raw files retained on S3 for replay.</li>
+  <li>Separate ingest / validate / transform services give <b>one repeatable path</b> from raw partner file to queryable Snowflake table, with raw files kept on S3 for replay.</li>
 </ul>
 
-<div class="case-title"><span class="tag">CASE 3 · APPLIED AI —</span> Claude + MCP Enterprise AI Layer <span class="stack">| Claude · FastMCP · OpenAI GPT · Python</span></div>
+<div class="case-title"><span class="tag">CASE 3 · APPLIED AI —</span> Claude + MCP Enterprise AI Layer <span class="stack">| Claude · FastMCP · Python</span></div>
 <ul>
-  <li><b>Built:</b> MCP tools giving Claude natural-language access to enterprise data, with token-based auth and per-user visibility enforced in the tool layer; LLM-assisted classification and mapping.</li>
+  <li>Natural-language access to enterprise data, with <b>access control enforced in the tool layer</b>, not the prompt.</li>
 </ul>
 
-<div class="case-title"><span class="tag">CASE 4 · DSA —</span> Algorithmic Data Mapping Framework <span class="stack">| Python · Hash Maps · Blocking · RapidFuzz · SQL Server</span></div>
+<div class="case-title"><span class="tag">CASE 4 · DSA —</span> Algorithmic Data Mapping Framework <span class="stack">| Python · Hash Maps · RapidFuzz</span></div>
 <ul>
-  <li><b>Built:</b> Four pluggable mapping strategies selected by data volume; hash-map indexes for O(1) exact lookups and blocking keys so fuzzy matching compares only plausible candidates instead of O(n × m) pairs.</li>
+  <li><b>O(1)</b> hash-map lookups and blocking keys — fuzzy matching checks only plausible candidates, not <b>O(n × m)</b> pairs.</li>
 </ul>
 
-<div class="case-title"><span class="tag">CASE 5 · MACHINE LEARNING —</span> Applied ML: Model Selection &amp; Evaluation <span class="stack">| Python · scikit-learn · TensorFlow · Keras · OpenCV · Matplotlib</span></div>
+<div class="case-title"><span class="tag">CASE 5 · MACHINE LEARNING —</span> Model Selection &amp; Evaluation <span class="stack">| scikit-learn · TensorFlow · Keras · OpenCV</span></div>
 <ul>
-  <li><b>Problem:</b> Predicting Li-ion battery lifecycle from noisy charge/discharge data and recognising facial emotions in real time — both needed the right model, chosen by evidence.</li>
-  <li><b>Built:</b> Compared <b>SVM, Decision Tree and Random Forest</b> models against regression baselines; used <b>K-Means</b> clustering for degradation patterns; trained neural networks with <b>gradient descent</b> in TensorFlow / Keras.</li>
-  <li><b>Impact:</b> Evaluated with <b>confusion matrices</b> and error metrics on held-out data; <b>92% accuracy</b> on emotion recognition, 1st place among 40+ teams at SIGFEST’23.</li>
+  <li>Compared <b>SVM, Decision Tree and Random Forest</b>; <b>K-Means</b> for degradation patterns; neural nets via <b>gradient descent</b>; evaluated with <b>confusion matrices</b> — 92% accuracy.</li>
 </ul>
 
 <h2>Key Projects</h2>
-
-<div class="case-title">FinanceDashboard — Excel Add-in <span class="stack">| C# · Excel-DNA · .NET · xUnit</span> &nbsp;<a href="https://github.com/VivekKumartripathi/FinanceDashboard">GitHub</a></div>
-<ul>
-  <li>Excel add-in charting bank financials by metric, segment, country and period, with KPI tiles, heatmap and custom <b>FIN.*</b> worksheet functions; calculation core covered by <b>30 xUnit tests</b>.</li>
-</ul>
-
-<div class="case-title">Incident Reporting System <span class="stack">| React.js · Node.js · Express.js · MongoDB</span> &nbsp;<a href="https://sepm-project.netlify.app/">Live Project</a></div>
-<ul>
-  <li>Full-stack platform with OTP-verified registration, complaint submission, role-based access and dynamic slot booking.</li>
+<ul class="flat">
+  <li><b>FinanceDashboard — Excel Add-in</b> <span class="stack">| C# · Excel-DNA · xUnit</span> — financial charts, KPI tiles and heatmap; core covered by <b>30 xUnit tests</b>. <a href="https://github.com/VivekKumartripathi/FinanceDashboard">GitHub</a></li>
+  <li><b>Incident Reporting System</b> <span class="stack">| MERN</span> — OTP sign-up, role-based access and slot booking. <a href="https://sepm-project.netlify.app/">Live Project</a></li>
 </ul>
 
 <h2>Achievements</h2>
-<h3><span>1st Place — SIGFEST’23 AI/ML Competition, MUJ ACM</span><span class="when">Mar 2023</span></h3>
-<ul>
-  <li>Built an AI chatbot that detected facial emotions and recommended songs, achieving <b>92% accuracy</b> and winning <b>1st place among 40+ teams</b> (Manipal University Jaipur).</li>
-  <li><b>Competitive programming:</b> regular data structures and algorithms practice on <a href="https://www.codechef.com/users/vivektripaathy">CodeChef</a>.</li>
+<ul class="flat">
+  <li><b>1st Place, SIGFEST’23 AI/ML (MUJ ACM)</b> — emotion-aware music chatbot, <b>92% accuracy</b>, <b>40+ teams</b></li>
+  <li>Regular data structures and algorithms practice on <a href="https://www.codechef.com/users/vivektripaathy">CodeChef</a>.</li>
 </ul>
 
 <h2>Education</h2>
-<h3><span>B.Tech, Computer Science and Engineering — SRM Institute of Science and Technology</span><span class="when">Sep 2020 – Jun 2024</span></h3>
-<div class="sub"><span>CGPA: 9.29 / 10</span><span>Chennai, Tamil Nadu</span></div>
+<h3><span>B.Tech, Computer Science and Engineering — SRM Institute of Science and Technology · CGPA 9.29 / 10</span><span class="when">2020 – 2024</span></h3>
 
 </body>
 </html>
