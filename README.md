@@ -100,4 +100,5 @@ netlify.toml       Netlify build settings (publish the /out folder)
 | Any text, project, skill or job | `data/portfolio.ts` |
 | Colours / theme | `:root` variables at the top of `app/globals.css` |
 | Page title | `metadata` in `app/layout.tsx` |
-| Resume | `public/resume.html` |
+| Resume (visual, with diagram) | `public/resume.html` |
+| Resume (ATS, for job portals) | `public/resume-ats.html` — plain text version; keep its content in sync with `resume.html` |
