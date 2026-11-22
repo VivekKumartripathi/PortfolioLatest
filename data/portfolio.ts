@@ -101,7 +101,9 @@ export const heroSteps: Step[] = [
 // Scrolling tech strip under the hero.
 export const marquee: string[] = [
   "C#", ".NET", "ASP.NET Core Web API", "Entity Framework", "HubSpot CRM", "Snowflake", "AWS S3", "FastAPI",
-  "Parquet", "BullMQ", "Redis", "Claude", "MCP", "Node.js", "Next.js", "React", "Python", "SQL Server", "SQLite", "PostgreSQL", "Docker", "OpenAI GPT", "RAG", "SFTP",
+  "Parquet", "BullMQ", "Redis", "Claude", "MCP", "Node.js", "Next.js", "React", "Angular", "Python", "SQL Server", "SQLite", "PostgreSQL", "Docker", "OpenAI GPT", "RAG", "SFTP",
+  "TensorFlow", "PyTorch", "Keras", "scikit-learn", "OpenCV", "NumPy", "Pandas", "SciPy", "PyArrow", "Matplotlib", "Pillow",
+  "Jupyter", "Hugging Face", "LangChain", "Flask", "Spotipy", "tqdm", "Kiwisolver", "Jira", "Sourcetree",
 ];
 
 export const impact: Stat[] = [
@@ -207,6 +209,20 @@ export const caseStudies: CaseStudy[] = [
     impact: "Large mapping jobs compare only plausible candidates instead of the whole master list.",
     stack: ["Python", "Hash Maps", "Blocking", "RapidFuzz", "SQL Server", "ASP.NET Core"],
   },
+  {
+    tag: "Machine Learning",
+    title: "Applied ML: Model Selection & Evaluation",
+    subtitle: "Battery-life prediction and emotion recognition",
+    problem:
+      "Predicting Li-ion battery lifecycle from noisy charge/discharge cycles, and recognising facial emotions in real time — both needed the right model, chosen by evidence rather than habit.",
+    built: [
+      "Compared SVM, Decision Tree and Random Forest models against regression baselines on battery degradation features.",
+      "Used K-Means clustering to group cells by degradation pattern, and trained neural networks with gradient descent in TensorFlow / Keras.",
+      "Evaluated every model on held-out data with confusion matrices and error metrics, and plotted results with Matplotlib.",
+    ],
+    impact: "92% accuracy on emotion recognition — 1st place among 40+ teams at SIGFEST’23 — and a clear comparison of classical ML vs neural models for battery-life prediction.",
+    stack: ["Python", "scikit-learn", "TensorFlow", "Keras", "OpenCV", "NumPy", "Pandas", "Matplotlib", "Jupyter"],
+  },
 ];
 
 export const projects: Project[] = [
@@ -290,7 +306,12 @@ export const capabilities: Capability[] = [
   {
     title: "AI, LLMs & Agents",
     text: "Putting LLMs to work on real business data.",
-    items: ["Claude", "Claude Code", "MCP / FastMCP", "AI Agents", "RAG", "Vector Embeddings", "OpenAI GPT", "LangChain", "Hugging Face", "Prompt Engineering", "NLP", "Machine Learning", "TensorFlow"],
+    items: ["Claude", "Claude Code", "MCP / FastMCP", "AI Agents", "RAG", "Vector Embeddings", "OpenAI GPT", "LangChain", "Hugging Face", "Prompt Engineering", "NLP"],
+  },
+  {
+    title: "Machine Learning & Python",
+    text: "Classical ML, deep learning and the Python data stack.",
+    items: ["SVM", "Decision Trees", "Random Forest", "K-Means", "Gradient Descent", "Confusion Matrix", "Fuzzy Matching", "scikit-learn", "TensorFlow", "PyTorch", "Keras", "OpenCV", "NumPy", "Pandas", "SciPy", "PyArrow", "Matplotlib", "Pillow", "Jupyter", "Spotipy"],
   },
   {
     title: "Frontend & Delivery",

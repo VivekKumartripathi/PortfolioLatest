@@ -385,6 +385,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .marquee-icon { width: 20px; height: 20px; flex: none; fill: var(--brand, var(--text)); transition: transform 0.25s; }
 .marquee-icon.generic { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .marquee-item:hover .marquee-icon { transform: scale(1.18); }
+/* A lone last card fills the row instead of leaving a gap (5 case studies in 2 columns, 7 skill groups in 3). */
+.cases > .case:last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (min-width: 981px) { .caps > .cap:last-child:nth-child(3n + 1) { grid-column: 1 / -1; } }
+@media (min-width: 641px) and (max-width: 980px) { .caps > .cap:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 :root:not([data-theme="light"]) .marquee-icon.dim { fill: color-mix(in srgb, var(--brand) 55%, white); }
 .sr-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 @keyframes marquee { to { transform: translateX(-50%); } }

@@ -30,7 +30,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
-  icons: { icon: "/favicon.svg" },
+  // PNG/ICO for phones and older browsers, SVG for sharp tabs on desktop, Apple icon for iPhone home screens.
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
+  },
+  manifest: "/site.webmanifest",
   // Link previews on LinkedIn, Slack, WhatsApp, X, etc.
   openGraph: {
     type: "website",

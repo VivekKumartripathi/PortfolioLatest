@@ -1,20 +1,38 @@
 import type { CSSProperties } from "react";
 import {
+  siAngular,
+  siApachearrow,
   siApacheparquet,
   siClaude,
   siDocker,
   siDotnet,
   siFastapi,
+  siFlask,
+  siHuggingface,
+  siJira,
+  siJupyter,
+  siKeras,
+  siLangchain,
   siHubspot,
   siModelcontextprotocol,
   siNextdotjs,
   siNodedotjs,
+  siNumpy,
+  siOpencv,
+  siPandas,
   siPostgresql,
   siPython,
+  siPytorch,
   siReact,
   siRedis,
+  siScikitlearn,
+  siScipy,
   siSnowflake,
+  siSourcetree,
+  siSpotify,
   siSqlite,
+  siTensorflow,
+  siTqdm,
   type SimpleIcon,
 } from "simple-icons";
 import { marquee } from "@/data/portfolio";
@@ -29,6 +47,9 @@ const GENERIC: Record<string, string> = {
   spark: "M12 2l2.2 6.4L21 11l-6.8 2.6L12 20l-2.2-6.4L3 11l6.8-2.6zM19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z", // OpenAI GPT
   search: "M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5M14 3l5 5M14 3v5h5M17.5 20.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 22l-1.4-1.4", // RAG
   transfer: "M4 8h13l-3-3M20 16H7l3 3", // SFTP
+  image: "M4 5h16v14H4zM4 15l4-4 5 5M13 13l2-2 5 5M15.5 9.5a1 1 0 1 0 0-.01", // Pillow
+  chart: "M4 20V4M4 20h16M8 16l3-5 3 3 5-8", // Matplotlib
+  solver: "M12 3v4M12 17v4M3 12h4M17 12h4M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z", // Kiwisolver
 };
 
 type Icon = { id: string; brand: SimpleIcon } | { id: string; generic: string };
@@ -58,6 +79,27 @@ const ICONS: Record<string, Icon> = {
   "OpenAI GPT": { id: "spark", generic: GENERIC.spark },
   RAG: { id: "search", generic: GENERIC.search },
   SFTP: { id: "transfer", generic: GENERIC.transfer },
+  Angular: { id: "angular", brand: siAngular },
+  TensorFlow: { id: "tensorflow", brand: siTensorflow },
+  PyTorch: { id: "pytorch", brand: siPytorch },
+  Keras: { id: "keras", brand: siKeras },
+  "scikit-learn": { id: "sklearn", brand: siScikitlearn },
+  OpenCV: { id: "opencv", brand: siOpencv },
+  NumPy: { id: "numpy", brand: siNumpy },
+  Pandas: { id: "pandas", brand: siPandas },
+  SciPy: { id: "scipy", brand: siScipy },
+  PyArrow: { id: "arrow", brand: siApachearrow },
+  Matplotlib: { id: "chart", generic: GENERIC.chart },
+  Pillow: { id: "image", generic: GENERIC.image },
+  Jupyter: { id: "jupyter", brand: siJupyter },
+  "Hugging Face": { id: "huggingface", brand: siHuggingface },
+  LangChain: { id: "langchain", brand: siLangchain },
+  Flask: { id: "flask", brand: siFlask },
+  Spotipy: { id: "spotify", brand: siSpotify },
+  tqdm: { id: "tqdm", brand: siTqdm },
+  Kiwisolver: { id: "solver", generic: GENERIC.solver },
+  Jira: { id: "jira", brand: siJira },
+  Sourcetree: { id: "sourcetree", brand: siSourcetree },
 };
 
 // Perceived brightness (0–255) of a brand colour.
@@ -104,7 +146,7 @@ export default function Marquee() {
   return (
     <div className="marquee" aria-label="Technologies">
       <IconSprite />
-      <div className="marquee-track">
+      <div className="marquee-track" style={{ animationDuration: `${marquee.length * 1.7}s` }}>
         {[...marquee, ...marquee].map((t, i) => (
           <span key={i} className="marquee-item" aria-hidden={i >= marquee.length}>
             <TechIcon label={t} />
