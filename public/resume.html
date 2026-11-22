@@ -137,26 +137,32 @@
 </div>
 
 <h2>Integration &amp; Data Systems — Architecture at a Glance</h2>
-<div class="arch">SOURCES &amp; STORES                 API &amp; PROCESSING                    QUEUE · CRM · AI
-┌───────────────┐                ┌───────────────────────┐           ┌───────────────────────┐
-│ Tenant apps   │───────────────►│ ASP.NET Core Web API  │──────────►│ BullMQ on Redis       │
-│ Partner APIs  │  REST · OAuth  │ auth · tenant tokens  │  enqueue  │ per-client queues     │
-│ Webhooks      │                │ validation · mapping  │           │ retry · backoff       │
-└───────────────┘                └───────────┬───────────┘           └───────────┬───────────┘
-                                             │ REST                              │ workers
-┌───────────────┐                ┌───────────▼───────────┐           ┌───────────▼───────────┐
-│ Partner files │───────────────►│ FastAPI services      │           │ HubSpot CRM sync      │
-│ CSV · JSON    │  SFTP drop     │ ingest · validate     │           │ Company→Contact→Deal  │
-└───────────────┘                │ CSV/JSON → Parquet    │           │ Associations · batch  │
-                                 └───────────┬───────────┘           └───────────────────────┘
-                                             │ boto3
-┌───────────────┐                ┌───────────▼───────────┐           ┌───────────────────────┐
-│ Snowflake     │◄───────────────│ AWS S3 data lake      │──────────►│ Claude via MCP        │
-│ SQL analytics │  COPY INTO     │ raw · clean · curated │  MCP      │ token auth · scoped   │
-└───────────────┘                └───────────────────────┘           └───────────────────────┘
+<div class="arch">CLIENTS               API LAYER                    ASYNC LAYER                INTEGRATIONS
+┌──────────────┐      ┌──────────────────────┐     ┌───────────────────┐      ┌─────────────────┐
+│ Inbound      │─────►│ ASP.NET Core API     │┄┄┄┄►│ BullMQ · Redis    │┄┄┄┄┄►│ HubSpot CRM     │
+├──────────────┤ HTTPS├──────────────────────┤ jobs├───────────────────┤ sync ├─────────────────┤
+│ Tenant apps  │      │ auth · tenant scope  │     │ per-tenant queues │      │ objects         │
+│ Partner APIs │   ┌──┤ validate · map       │     │ backoff on 429    │      │ associations    │
+│ Webhooks     │   │  │ EF Core · Dapper     │     │ idempotent jobs   │      │ batch upserts   │
+└──────────────┘   │  └─────────────┬────────┘     └───────────────────┘      └─────────────────┘
+                   │                │ REST
+┌──────────────┐   │  ┌─────────────▼────────┐                                ┌─────────────────┐
+│ SFTP drop    │┄┄┄┼┄►│ FastAPI services     │                                │ Claude via MCP  │
+├──────────────┤   │  ├──────────────────────┤                                ├─────────────────┤
+│ CSV · JSON   │   │  │ ingest · validate    │                                │ scoped read     │
+└──────────────┘   │  │ CSV/JSON → Parquet   │                                │ token auth      │
+                   │  └─────────────┬────────┘                                └────────▲────────┘
+                   │                ┆ boto3                                            ┆ MCP
+───────────────────┼────────────────┼─ DATA LAYER ─────────────────────────────────────┼─────────
+┌──────────────────▼────────┐     ┌─▼─────────────────────────┐     ┌──────────────────┴────────┐
+│ SQL Server                │     │ AWS S3 data lake          │┄┄┄┄►│ Snowflake                 │
+├───────────────────────────┤     ├───────────────────────────┤     ├───────────────────────────┤
+│ tenants · enc. tokens     │     │ raw · clean · curated     │     │ external stage            │
+│ mapping tables            │     │ partitioned Parquet       │     │ COPY INTO · SQL           │
+└───────────────────────────┘     └───────────────────────────┘     └───────────────────────────┘
 
-DB access     SQL Server ◄─ EF Core / Dapper ─ ASP.NET Core API
-Cross-cutting per-tenant isolation · idempotent jobs · logs &amp; audit trail</div>
+Legend      ──►  sync request (solid)        ┄┄►  async job / batch transfer (dotted)
+Principles  tenant isolation · idempotent jobs · retries with backoff · parent → child sync order</div>
 <ol class="arch-mobile">
   <li><b>Sources</b>Tenant apps · Partner APIs · Webhooks · SFTP partner files (CSV, JSON)</li>
   <li><b>API layer (.NET)</b>ASP.NET Core Web API — auth, tenant tokens, validation, mapping · EF Core / Dapper → SQL Server</li>
@@ -166,7 +172,6 @@ Cross-cutting per-tenant isolation · idempotent jobs · logs &amp; audit trail<
   <li><b>CRM sync</b>HubSpot — Company → Contact → Deal, Associations API, batch upserts</li>
   <li><b>AI layer</b>Claude via MCP tools — token auth, per-user scope</li>
 </ol>
-<div class="metrics"><b>.NET</b> Web API core &nbsp;·&nbsp; <b>6</b> pipeline stages &nbsp;·&nbsp; <b>per-client</b> tokens &amp; queues &nbsp;·&nbsp; <b>parent → child</b> CRM sync order &nbsp;·&nbsp; <b>4</b> mapping strategies &nbsp;·&nbsp; raw files kept on S3 for replay</div>
 
 <h2>Professional Experience</h2>
 
